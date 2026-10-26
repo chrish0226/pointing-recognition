@@ -4,7 +4,114 @@ Direction hypotheses compete using arm geometry and recent motion. The body
 reference is provided by the caller. No scene labels or expected order enter
 these functions.
 """
+from collections import deque
+import math
 import numpy as np
+
+
+class ForwardGeometry:
+    """Bounded per-person geometric calibration and an independent hypothesis.
+
+    Projected bone lengths give a scale estimate, not measured depth. Both
+    signs of missing depth compete against left/right; motion can supplement
+    borderline alignment only after a genuinely stable lateral endpoint.
+    """
+    def __init__(self):
+        self.lengths = {side: deque(maxlen=120) for side in ('L', 'R')}
+        self.poses = {side: deque(maxlen=40) for side in ('L', 'R')}
+        self.estimates = {}
+        self.phase_key = None
+        self.anchor = None
+
+    def observe(self, arms, q, reference, phase, now):
+        if reference is None:
+            return
+        up = q[[5, 6]].mean(0) - q[[11, 12]].mean(0)
+        torso = float(np.linalg.norm(up))
+        if torso < 8:
+            return
+        up /= torso
+        right2 = np.asarray(reference['right2'])
+        phase_key = (phase['side'], phase['direction'], phase['confirmed_s']) if phase else None
+        if phase_key != self.phase_key:
+            self.phase_key = phase_key
+            self.anchor = None
+        both_working = (np.linalg.norm(q[9] - q[10]) < .90 * torso and
+                        all((q[w] - q[sh]) @ up / torso > -.72
+                            for sh, w in ((5, 9), (6, 10))))
+        for arm in arms:
+            side = arm['side']
+            feature = np.asarray(arm['feature'])
+            wrist, fore = feature[:2], feature[2:]
+            fore_length = float(np.linalg.norm(fore))
+            lengths, poses = self.lengths[side], self.poses[side]
+            poses.append((now, feature.copy()))
+            if (arm['quality'] > .65 and .18 < fore_length < .85 and
+                    (not lengths or now - lengths[-1][0] >= .08)):
+                lengths.append((now, fore_length))
+            if len(lengths) < 12:
+                continue
+            cached = self.estimates.get(side)
+            if cached is None or now - cached[0] >= .25:
+                cached = (now, float(np.percentile([v[1] for v in lengths], 90)))
+                self.estimates[side] = cached
+            length = cached[1]
+            rise = float(fore @ up)
+            horizontal = math.sqrt(max(length * length - rise * rise, 0.))
+            if horizontal < .1:
+                continue
+            x = float(np.clip(fore @ right2 / horizontal, -1., 1.))
+            z = math.sqrt(max(0., 1. - x * x))
+            rays = np.array([[x, z], [x, -z]])
+            front_axis = np.array([np.asarray(reference['forward'][:2]) @ right2,
+                                   reference['forward'][2]])
+            side_axis = np.array([np.asarray(reference['right'][:2]) @ right2,
+                                  reference['right'][2]])
+            front = float(max(rays @ front_axis))
+            lateral = float(max(abs(rays @ side_axis)))
+            margin = front - lateral
+            arm['forward_geometry'] = {'forearm_scale': length, 'front_alignment': front,
+                                       'side_alignment': lateral, 'projection_ratio': fore_length / length,
+                                       'calibration_samples': len(lengths)}
+            if not phase or phase['side'] != side:
+                continue
+            # A confirmed label can precede the actual endpoint. Acquire an
+            # independent stable pose rather than treating that instant as rest.
+            recent = [v for v in poses if now - v[0] <= .18 and v[0] >= phase['confirmed_s']]
+            if self.anchor is None and len(recent) >= 3 and now - recent[0][0] >= .06:
+                dt = now - recent[0][0]
+                change = recent[-1][1] - recent[0][1]
+                if np.linalg.norm(change[:2]) / dt < .55 and np.linalg.norm(change[2:]) / dt < .70:
+                    self.anchor = np.median([v[1] for v in recent], axis=0)
+            depth_weak = np.linalg.norm(arm['feature_3d'][3:]) < .85 * length
+            if (phase.get('bone_forward') and arm['raised'] and depth_weak and not both_working and
+                    -.48 < arm['lift'] < .35 and
+                    np.linalg.norm(wrist - np.asarray(phase['feature'][:2])) < .15 * length and
+                    np.linalg.norm(fore - np.asarray(phase['feature'][2:])) < .20 * length):
+                arm['direction'] = 'forward'
+                arm['bone_forward_hold'] = True
+            if self.anchor is None or phase['direction'] not in ('left', 'right'):
+                continue
+            base_wrist, base_fore = self.anchor[:2], self.anchor[2:]
+            contraction = 1. - fore_length / max(float(np.linalg.norm(base_fore)), 1e-8)
+            body_turn = math.degrees(math.acos(float(np.clip(
+                np.asarray(arm['body_right']) @ phase['body_right'], -1., 1.))))
+            novelty = (np.linalg.norm(wrist - np.asarray(phase['feature'][:2])) > .20 * length or
+                       np.linalg.norm(fore - np.asarray(phase['feature'][2:])) > .25 * length)
+            retracted = (contraction > .22 and
+                         abs(wrist @ right2) < abs(base_wrist @ right2) + .08 * length and
+                         arm['lift'] > float(base_wrist @ up) - .08 and body_turn < 12.)
+            # The bounded motion term supports a partial turn towards front;
+            # it cannot rescue an arm that still strongly aligns with a side.
+            aligned = ((front > .76 and margin > .14) or
+                       (front > .65 and margin + .6 * contraction > .14 and retracted))
+            proposal = (arm['raised'] and arm['quality'] > .65 and -.48 < arm['lift'] < .35 and
+                        rise > -.02 and arm['reach'] > .14 and fore_length < .88 * length and
+                        aligned and retracted and novelty and depth_weak and not both_working and
+                        arm['direction'] != 'forward')
+            arm['forward_geometry'].update({'anchor_ready': True, 'contraction': contraction,
+                                            'proposal': bool(proposal)})
+            arm['bone_forward_proposal'] = bool(proposal)
 
 
 def _unit(v):

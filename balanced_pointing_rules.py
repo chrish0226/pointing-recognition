@@ -8,10 +8,10 @@ The camera/body reference remains a monocular estimate, not calibration.
 from collections import Counter,deque
 import math
 import numpy as np
-from arm_geometry import apply_arm_motion,direction_evidence
+from arm_geometry import ForwardGeometry,apply_arm_motion,direction_evidence
 
 REQUIRED=('forward','left','right')
-PROFILE='arm_geometry_v8'
+PROFILE='arm_geometry_v9'
 DEFAULTS={'smooth_frames':3,'reference_frames':60,'min_reference_frames':12,'min_joint_score':.35,
           'min_wrist_score':.45,'min_mean_score':.50,'raise_enter':-.64,
           'raise_exit':-.76,'min_reach':.18,'min_forearm':.06,
@@ -31,7 +31,7 @@ DEFAULTS={'smooth_frames':3,'reference_frames':60,'min_reference_frames':12,'min
           'walking_hip_speed':1.05,'walking_foot_speed':.50,
           'orientation_assist':True,'profile_front_settle_s':.22,'forward_height_spread':.12,
           'arm_geometry':True,'vote_max_age_s':.32,'confirmation_min_s':.08,
-          'compact_forward_min_s':.12}
+          'compact_forward_min_s':.12,'bone_forward_min_s':.12}
 
 
 def unit(v):
@@ -259,6 +259,7 @@ class BalancedPointing:
         if int(tid) in self.people:return self.people[int(tid)]
         return self.people.setdefault(int(tid),{'done':{},'passed_s':None,'events':[],
             'natural_history':{side:deque(maxlen=128) for side in ('L','R')},
+            'forward_geometry':ForwardGeometry(),'forward_votes':{side:deque(maxlen=128) for side in ('L','R')},
             'profile_front_since':{side:None for side in ('L','R')},'heading_filter':HeadingFilter(),'alternate_refs':deque(maxlen=12),'last_frame':None,'last_seen_s':time_s,'last_reference_s':None,
             'reference_history':deque(maxlen=60),'weak_pose_after_s':0.,'motion_history':deque(maxlen=60),
             'samples':deque(maxlen=self.config['smooth_frames']),
@@ -273,7 +274,8 @@ class BalancedPointing:
         if st['phase']:
             st['events'].append({**st['phase'],'ended_s':t,'end_frame':frame,'end_reason':reason})
         st['phase']=None;st['votes'].clear()
-    def _stable_candidate(self,votes,phase=None):
+        for pool in st['forward_votes'].values():pool.clear()
+    def _stable_candidate(self,votes,phase=None,bone_duration=None):
         cfg=self.config
         if not votes or not votes[-1].get('direction'):return None
         now=votes[-1]['time_s']
@@ -282,7 +284,11 @@ class BalancedPointing:
         intervals=np.diff(times)
         intervals=intervals[intervals>1e-6]
         interval=float(np.median(intervals)) if len(intervals) else 1/30
-        window=max(cfg['vote_frames'],int(math.ceil(cfg['confirmation_min_s']/interval))+3)
+        window_duration=cfg['confirmation_min_s']
+        if votes[-1].get('compact_forward'):window_duration=max(window_duration,cfg['compact_forward_min_s'])
+        if votes[-1].get('bone_forward'):
+            window_duration=max(window_duration,cfg['bone_forward_min_s'] if bone_duration is None else bone_duration)
+        window=max(cfg['vote_frames'],int(math.ceil(window_duration/interval))+3)
         recent_votes=recent_votes[-window:]
         known=[v for v in recent_votes if v['direction']]
         if phase:known=[v for v in known if v['direction']!=phase['direction']]
@@ -301,13 +307,15 @@ class BalancedPointing:
         min_duration=.06 if required==3 else cfg['confirmation_min_s']
         if direction=='forward' and any(v.get('compact_forward') for v in known[-3:]):
             min_duration=max(min_duration,cfg['compact_forward_min_s'])
+        if direction=='forward' and any(v.get('bone_forward') for v in known[-3:]):
+            min_duration=max(min_duration,cfg['bone_forward_min_s'] if bone_duration is None else bone_duration)
         required=max(required,int(math.ceil(min_duration/interval-1e-6))+1)
         if count<required or count/len(known)<cfg['vote_fraction']:return None
         support=[v for v in known if v['direction']==direction]
-        if direction=='forward' and votes[-1].get('compact_forward'):
+        if direction=='forward' and (votes[-1].get('compact_forward') or votes[-1].get('bone_forward')):
             run=[]
             for v in reversed(recent_votes):
-                if v.get('direction')!='forward' or not v.get('compact_forward'):break
+                if v.get('direction')!='forward' or not (v.get('compact_forward') or v.get('bone_forward')):break
                 run.append(v)
             if len(run)<required:return None
             support=list(reversed(run))
@@ -318,7 +326,7 @@ class BalancedPointing:
             dt=recent[-1]['time_s']-recent[0]['time_s']
             change=np.asarray(recent[-1]['feature'])[:2]-np.asarray(recent[0]['feature'])[:2]
             assisted_side=direction in ('left','right') and any(v.get('orientation_agrees') or v.get('orientation_preserved') for v in recent)
-            compact_vote=any(v.get('compact_forward') for v in recent)
+            compact_vote=any(v.get('compact_forward') or v.get('bone_forward') for v in recent)
             speed=(np.linalg.norm(change) if compact_vote or (phase is None and (direction=='forward' or assisted_side)) else abs(change[1]))/max(dt,1e-8)
             gate=(direction=='forward' or any(v.get('lowering_exempt') for v in recent) or
                   (phase is None and (recent[-1]['lift']<-.15 or assisted_side)))
@@ -337,6 +345,7 @@ class BalancedPointing:
                 'recent_raise':any(v['recent_raise'] for v in support),
                 'natural_transition':sum(bool(v.get('natural_transition')) for v in support)>=required,
                 'compact_forward':sum(bool(v.get('compact_forward')) for v in support)>=required,
+                'bone_forward':sum(bool(v.get('bone_forward')) for v in support)>=required,
                 'direction_margin':float(np.mean([v.get('margin',0.) for v in support])),
                 'forward_score':float(np.mean([v.get('direction_scores',{}).get('forward',0.) for v in support])),
                 'feature':median.tolist(),'start_frame':support[0]['frame'],'started_s':support[0]['time_s'],
@@ -385,10 +394,12 @@ class BalancedPointing:
             st['heading_filter'].depths.clear();st['heading_filter'].depth_sign=None;st['heading_filter'].right2=None
             for history in st['lift_history'].values():history.clear()
             for history in st['natural_history'].values():history.clear()
+            st['forward_geometry']=ForwardGeometry()
         st['last_frame']=frame;st['last_seen_s']=time_s
         torso_ids=[5,6,11,12]
         if (not np.isfinite(p[torso_ids]).all() or not np.isfinite(q[torso_ids]).all() or
             not np.isfinite(s[torso_ids]).all() or min(s[torso_ids])<.30):
+            for pool in st['forward_votes'].values():pool.append({'direction':None,'time_s':time_s})
             st['votes'].append({'direction':None,'time_s':time_s});return self.snapshot(tid),[]
         p=repair_arm_depth(p,q,s)
         st['samples'].append((p,q,s))
@@ -480,6 +491,7 @@ class BalancedPointing:
         for arm in arms:arm['direction_stages']['heading']=arm['direction']
         if cfg['arm_geometry']:
             apply_arm_motion(arms,p,q,ref,st['phase'],st['natural_history'],time_s)
+            st['forward_geometry'].observe(arms,q,ref,st['phase'],time_s)
         for arm in arms:arm['direction_stages']['temporal']=arm['direction']
 
         torso_size=float(np.linalg.norm(q[[5,6]].mean(0)-q[[11,12]].mean(0)))
@@ -603,6 +615,16 @@ class BalancedPointing:
             selected['selected']=True
             st['votes'].append({**selected,'frame':frame,'time_s':time_s})
         else:st['votes'].append({'direction':None,'time_s':time_s})
+        for arm_side,pool in st['forward_votes'].items():
+            arm=next((a for a in arms if a['side']==arm_side),None)
+            eligible=bool(arm and arm.get('bone_forward_proposal') and st['phase'] and
+                arm['lift']>st['phase'].get('peak_lift',st['phase']['lift'])-.12 and
+                not any(r in arm['rejections'] for r in ('WALKING_WEAK_ARM','BODY_REFERENCE_SETTLING',
+                                                        'LOW_FORWARD_WITHOUT_EXTENSION')))
+            if eligible:
+                pool.append({**arm,'direction':'forward','natural_transition':True,'bone_forward':True,
+                             'frame':frame,'time_s':time_s})
+            else:pool.append({'direction':None,'time_s':time_s})
         phase=st['phase'];active_side=phase['side'] if phase else None
         tracked=next((a for a in arms if a['side']==active_side),None)
         resting=bool((tracked and tracked['resting']) or (len(arms)==2 and all(a['resting'] for a in arms)))
@@ -610,6 +632,16 @@ class BalancedPointing:
         if st['rest_count']>=cfg['rest_frames']:
             self._end_phase(st,frame,time_s,'ARM_LOWERED');st['provisional']=None
         candidate=self._stable_candidate(st['votes'],st['phase'])
+        if st['phase'] and st['phase']['direction'] in ('left','right'):
+            forward_pool=st['forward_votes'][st['phase']['side']]
+            inferred=self._stable_candidate(forward_pool,st['phase'])
+            if inferred:candidate=inferred
+            elif candidate and candidate['direction'] in ('left','right') and self._stable_candidate(
+                    forward_pool,st['phase'],bone_duration=cfg['confirmation_min_s']):
+                # A stable geometric front hypothesis needs a little longer
+                # than a side vote. Allow that bounded observation time so a
+                # flat-depth lateral label cannot win one frame earlier.
+                candidate=None
         if candidate and (phase is None or (candidate['direction']!=phase['direction'] and self._is_new_pose(phase,candidate))):
             if phase:self._end_phase(st,frame,time_s,'STABLE_NEW_POSE')
             phase={**candidate,'confirmed_frame':frame,'confirmed_s':time_s}

@@ -1,0 +1,3586 @@
+{
+  "created_at": "2026-10-26T22:57:11.112039+08:00",
+  "profile": "arm_geometry_v9",
+  "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+  "rule_sources_sha256": {
+    "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+    "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+  },
+  "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+  "results": [
+    {
+      "name": "8",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\8.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\8\\result.mp4",
+      "frames": 218,
+      "fps": 30.0,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 183,
+        "2": 94,
+        "6": 15,
+        "9": 95,
+        "11": 83,
+        "13": 21
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 2.7666666666666666
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 3.1333333333333333
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 3.8
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 1
+          },
+          "passed": true,
+          "passed_s": 3.8
+        },
+        {
+          "track_id": 2,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 6,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 9,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 11,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 13,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 29.445678484140526,
+      "mean_inference_ms": 22.05637844339218
+    },
+    {
+      "name": "9",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\9.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\9\\result.mp4",
+      "frames": 291,
+      "fps": 29.795221843003414,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 257,
+        "2": 168,
+        "3": 2,
+        "5": 45,
+        "7": 27
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 4.9336769759450165
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 5.168613974799541
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 5.537800687285223
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 1
+          },
+          "passed": true,
+          "passed_s": 5.537800687285223
+        },
+        {
+          "track_id": 2,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 3,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 5,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 7,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 34.06920593690963,
+      "mean_inference_ms": 18.08005738587365
+    },
+    {
+      "name": "3",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\3.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\3\\result.mp4",
+      "frames": 549,
+      "fps": 29.945454545454545,
+      "size": [
+        720,
+        1280
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 2,
+      "track_frames": {
+        "1": 269,
+        "2": 532,
+        "4": 114,
+        "8": 374,
+        "11": 6,
+        "12": 1,
+        "13": 5,
+        "14": 2,
+        "16": 7,
+        "19": 11,
+        "21": 3
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      },
+      "events": [
+        {
+          "track_id": 4,
+          "direction": "forward",
+          "time_s": 2.1706132361870067
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 4.608378870673953
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 6.010928961748634
+        },
+        {
+          "track_id": 2,
+          "direction": "forward",
+          "time_s": 14.726775956284152
+        },
+        {
+          "track_id": 2,
+          "direction": "right",
+          "time_s": 15.494839101396478
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 0,
+            "left": 1,
+            "right": 1
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 2,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 1
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 4,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 8,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 11,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 12,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 13,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 14,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 16,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 19,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 21,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 28.00940938606505,
+      "mean_inference_ms": 23.795197451298883
+    },
+    {
+      "name": "4",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\4.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\4\\result.mp4",
+      "frames": 209,
+      "fps": 29.857142857142858,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 180
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 1.875598086124402
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 2.277511961722488
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 45.67805199830868,
+      "mean_inference_ms": 11.299703350406514
+    },
+    {
+      "name": "13",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\13.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\13\\result.mp4",
+      "frames": 185,
+      "fps": 29.838709677419356,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 149
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 1.6086486486486486
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 2.1448648648648647
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 45.63304803522166,
+      "mean_inference_ms": 11.241005403241394
+    },
+    {
+      "name": "14",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\14.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\14\\result.mp4",
+      "frames": 228,
+      "fps": 29.868995633187772,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 220
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 2.912719298245614
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 3.347953216374269
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 3.5823099415204678
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 1
+          },
+          "passed": true,
+          "passed_s": 3.5823099415204678
+        }
+      ],
+      "wall_processing_fps": 43.447170955570535,
+      "mean_inference_ms": 12.619521494407469
+    },
+    {
+      "name": "16",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\16.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\16\\result.mp4",
+      "frames": 242,
+      "fps": 30.0,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 2,
+      "track_frames": {
+        "1": 9,
+        "2": 221
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      },
+      "events": [
+        {
+          "track_id": 2,
+          "direction": "left",
+          "time_s": 2.566666666666667
+        },
+        {
+          "track_id": 2,
+          "direction": "forward",
+          "time_s": 3.466666666666667
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 2,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 43.55837588209868,
+      "mean_inference_ms": 12.340631814623514
+    },
+    {
+      "name": "21_27_17",
+      "source": "D:\\ASDF\\Pictures\\Camera Roll\\WIN_20261025_21_27_17_Pro.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\21_27_17\\result.mp4",
+      "frames": 603,
+      "fps": 30.00676769553332,
+      "size": [
+        1920,
+        1080
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 603
+      },
+      "dominant_counts": {
+        "forward": 3,
+        "left": 3,
+        "right": 3
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 3.299255721393035
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 4.632288336097291
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 5.965320950801548
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 9.531183195135434
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 10.797564179104478
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 11.930641901603096
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 15.99639137645108
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 17.262772360420122
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 18.429175898286346
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 3,
+            "left": 3,
+            "right": 3
+          },
+          "passed": true,
+          "passed_s": 5.965320950801548
+        }
+      ],
+      "wall_processing_fps": 28.758113489968963,
+      "mean_inference_ms": 13.757258379109093
+    },
+    {
+      "name": "22_32_55",
+      "source": "D:\\ASDF\\Pictures\\Camera Roll\\WIN_20261025_22_32_55_Pro.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\22_32_55\\result.mp4",
+      "frames": 1752,
+      "fps": 29.701358938888436,
+      "size": [
+        1920,
+        1080
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 1562
+      },
+      "dominant_counts": {
+        "forward": 7,
+        "left": 6,
+        "right": 8
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 7.57541095890411
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 9.326172602739726
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 11.076934246575343
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 14.039761643835616
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 15.857860273972603
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 17.844301369863015
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 21.244819178082192
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 21.850852054794522
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 23.60161369863014
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 25.689060273972604
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 28.618219178082192
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 30.773002739726028
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 32.69210684931507
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 34.34186301369863
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 36.49664657534247
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 38.78610410958904
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 41.277572602739724
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 43.23034520547945
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 45.11578082191781
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 48.11227671232877
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 52.62385479452055
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 7,
+            "left": 6,
+            "right": 8
+          },
+          "passed": true,
+          "passed_s": 11.076934246575343
+        }
+      ],
+      "wall_processing_fps": 29.86233560438386,
+      "mean_inference_ms": 12.815132647123907
+    },
+    {
+      "name": "21_14_58",
+      "source": "D:\\ASDF\\Pictures\\Camera Roll\\WIN_20261026_21_14_58_Pro.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v9\\21_14_58\\result.mp4",
+      "frames": 2649,
+      "fps": 30.00649064520185,
+      "size": [
+        1920,
+        1080
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v9",
+      "rule_sha256": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "c4a1826a0c0991e3ee808150c0577e9a694fddc16defc58db6352e518919dd9f",
+        "arm_geometry.py": "e80a0183d01bb3e5854ec8bdfffc9c46fcf6158d799be5483c0014ded3211242"
+      },
+      "rule_bundle_sha256": "383ac7c555c5b438ec195e87089d91b3db2dc604d3e9bc1f87683ac3dc32dfd9",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 3,
+      "track_frames": {
+        "1": 2,
+        "2": 1,
+        "3": 2467
+      },
+      "dominant_counts": {
+        "forward": 20,
+        "left": 24,
+        "right": 22
+      },
+      "events": [
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 5.398831936579842
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 5.898723782559457
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 6.26531113627784
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 8.331530766326916
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 8.664791996979993
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 9.931184673461683
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 10.431076519441298
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 10.764337750094375
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 12.363991657229143
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 12.83055738014345
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 13.197144733861835
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 15.330016610041525
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 15.596625594563987
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 16.196495809739524
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 17.69617134767837
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 18.196063193657984
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 18.66262891657229
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 20.56221793129483
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 23.328286145715364
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 24.39472208380521
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 26.26098497546244
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 28.593813590033974
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 28.960400943752358
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 29.52694503586259
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 31.326555681389202
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 33.759362665156665
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 34.425885126462816
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 34.89245084937712
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 36.75871374103435
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 37.75849743299358
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 39.92469543223858
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 42.1908718006795
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 43.19065549263873
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 44.990266138165346
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 45.55681023027557
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 45.95672370705927
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 47.92296496791242
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 48.45618293695734
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 48.88942253680634
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 51.52218625896565
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 52.12205647414118
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 52.42199158172895
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 55.15473367308418
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 57.52088841072103
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 57.920801887504716
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 58.38736761041903
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 59.88704314835787
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 60.48691336353341
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 60.92015296338241
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 63.81952567006417
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 65.91907142317855
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 66.5189416383541
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 66.91885511513779
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 68.2852261608154
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 68.85177025292563
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 69.28500985277464
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 71.21792499056248
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 72.91755726689317
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 73.48410135900339
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 73.9506670819177
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 76.28349569648924
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 79.1162161570404
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 79.68276024915062
+        },
+        {
+          "track_id": 3,
+          "direction": "left",
+          "time_s": 81.31574027935069
+        },
+        {
+          "track_id": 3,
+          "direction": "right",
+          "time_s": 81.84895824839562
+        },
+        {
+          "track_id": 3,
+          "direction": "forward",
+          "time_s": 82.34885009437524
+        }
+      ],
+      "people": [
+        {
+          "track_id": 3,
+          "counts": {
+            "forward": 20,
+            "left": 24,
+            "right": 22
+          },
+          "passed": true,
+          "passed_s": 6.26531113627784
+        }
+      ],
+      "wall_processing_fps": 29.30019030601366,
+      "mean_inference_ms": 13.09591774230527
+    }
+  ],
+  "scope": "Known videos used for tuning/regression, not held-out accuracy measurement.",
+  "previous_version_commit": "ec10e51532fa4982238d3971e7000e4b3491b57f",
+  "optimization_branch": "improve/view-aware-forward-v9",
+  "unit_tests_passed": 130,
+  "full_model_video_runs": 10,
+  "total_frames": 6926,
+  "unit_test_command": ".venv_rtmw3d_trt/Scripts/python.exe -m unittest discover -s . -p test_*.py -q",
+  "all_h264_decode_and_frame_states_verified": true,
+  "old_nine_videos_all_track_counts_equal_v8": true,
+  "hand_finger_inputs_and_log_fields_excluded": true,
+  "engines": [
+    {
+      "file": "models/rtmw3d_l_tensorrt_fp16/rtmw3d_l_fp16.engine",
+      "sha256": "05e9d88648c1f8b837d34c620753d96c5b4afe2ff6eb714a2cfe075c20d7115d",
+      "unchanged": true
+    },
+    {
+      "file": "models/rtmw3d_l_tensorrt_fp16/yolox_s_fp16.engine",
+      "sha256": "96541c730796f28d6cb5b1761918b8a0f27ee06baf75c214eefea2f3984c4a47",
+      "unchanged": true
+    }
+  ],
+  "geometric_regression": {
+    "scope": "Simplified skeleton with known torso orientation and flattened arm depth, not field accuracy.",
+    "cases": [
+      {
+        "yaw_degrees": -60,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.63
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -60,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.63
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -45,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        },
+        "v9_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -45,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "left",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "left",
+            2.63
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -35,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -35,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "left",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -30,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -30,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "left",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -20,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": -20,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "left",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 0,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 0,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 20,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 20,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 30,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "right",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 30,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 35,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "right",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 35,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.67
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 45,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "right",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "right",
+            2.63
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 45,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 60,
+        "initial_direction": "left",
+        "v8_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 0
+        },
+        "v8_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "left",
+            1.8
+          ],
+          [
+            "forward",
+            2.63
+          ]
+        ]
+      },
+      {
+        "yaw_degrees": 60,
+        "initial_direction": "right",
+        "v8_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v9_counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        },
+        "v8_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.63
+          ]
+        ],
+        "v9_events": [
+          [
+            "right",
+            1.8
+          ],
+          [
+            "forward",
+            2.63
+          ]
+        ]
+      }
+    ]
+  },
+  "new_video_review": {
+    "scope": "Human intervals and order are review-only, not runtime inputs or independent accuracy.",
+    "groups": [
+      {
+        "group": 1,
+        "start_s": 5.198875198187995,
+        "end_s": 6.56524624386561,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 6.25,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 5.398831936579842
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 5.898723782559457
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 6.26531113627784
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 5.398831936579842
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 5.898723782559457
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 6.26531113627784
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 2,
+        "start_s": 7.631682181955455,
+        "end_s": 9.064705473763684,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 8.75,
+        "previous_counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 8.331530766326916
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 8.664791996979993
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 8.331530766326916
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 8.664791996979993
+          }
+        ],
+        "counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 3,
+        "start_s": 9.69790181200453,
+        "end_s": 11.130925103812759,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 10.8,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 9.931184673461683
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 10.431076519441298
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 10.764337750094375
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 9.931184673461683
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 10.431076519441298
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 10.764337750094375
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 4,
+        "start_s": 11.964078180445451,
+        "end_s": 13.597058210645526,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 13.2,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 12.363991657229143
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 12.83055738014345
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 13.197144733861835
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 12.363991657229143
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 12.83055738014345
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 13.197144733861835
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 5,
+        "start_s": 14.930103133257832,
+        "end_s": 16.596409286523215,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 16.2,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 15.330016610041525
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 15.596625594563987
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 16.196495809739524
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 15.330016610041525
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 15.596625594563987
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 16.196495809739524
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 6,
+        "start_s": 17.362910117025294,
+        "end_s": 18.995890147225367,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 18.6,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 17.69617134767837
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 18.196063193657984
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 18.66262891657229
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 17.69617134767837
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 18.196063193657984
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 18.66262891657229
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 7,
+        "start_s": 20.36226119290298,
+        "end_s": 22.028567346168366,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 21.7,
+        "previous_counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 20.56221793129483
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 20.56221793129483
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        }
+      },
+      {
+        "group": 8,
+        "start_s": 23.128329407323516,
+        "end_s": 24.7946355605889,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 24.5,
+        "previous_counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 23.328286145715364
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 24.39472208380521
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 23.328286145715364
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 24.39472208380521
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 1
+        }
+      },
+      {
+        "group": 9,
+        "start_s": 25.62778863722159,
+        "end_s": 27.360747036617592,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 26.85,
+        "previous_counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 26.26098497546244
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 26.26098497546244
+          }
+        ],
+        "counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 0
+        }
+      },
+      {
+        "group": 10,
+        "start_s": 28.22722623631559,
+        "end_s": 29.993510758776896,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 29.6,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 28.593813590033974
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 28.960400943752358
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 29.52694503586259
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 28.593813590033974
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 28.960400943752358
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 29.52694503586259
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 11,
+        "start_s": 31.126598942997358,
+        "end_s": 32.72625285013213,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 32.4,
+        "previous_counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 31.326555681389202
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 31.326555681389202
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        }
+      },
+      {
+        "group": 12,
+        "start_s": 33.52607980369951,
+        "end_s": 35.19238595696489,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 34.9,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 33.759362665156665
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 34.425885126462816
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 34.89245084937712
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 33.759362665156665
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 34.425885126462816
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 34.89245084937712
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 13,
+        "start_s": 36.5254308795772,
+        "end_s": 38.125084786711966,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 37.8,
+        "previous_counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 36.75871374103435
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 37.75849743299358
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 36.75871374103435
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 37.75849743299358
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 1
+        }
+      },
+      {
+        "group": 14,
+        "start_s": 39.658086447716116,
+        "end_s": 41.22441423178558,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 40.9,
+        "previous_counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 39.92469543223858
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 39.92469543223858
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        }
+      },
+      {
+        "group": 15,
+        "start_s": 41.990915062287655,
+        "end_s": 43.55724284635711,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 43.2,
+        "previous_counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 42.1908718006795
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 42.1908718006795
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 43.19065549263873
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 1
+        }
+      },
+      {
+        "group": 16,
+        "start_s": 44.59035266138165,
+        "end_s": 46.48994167610419,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 46.1,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 44.990266138165346
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 45.55681023027557
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 45.95672370705927
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 44.990266138165346
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 45.55681023027557
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 45.95672370705927
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 17,
+        "start_s": 47.556377614194034,
+        "end_s": 49.45596662891657,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 49.1,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 47.92296496791242
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 48.45618293695734
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 48.88942253680634
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 47.92296496791242
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 48.45618293695734
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 48.88942253680634
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 18,
+        "start_s": 51.15559890524726,
+        "end_s": 53.088514043035104,
+        "gesturing_arm": "L",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 52.7,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 51.52218625896565
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 52.12205647414118
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 52.42199158172895
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 51.52218625896565
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 52.12205647414118
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 52.42199158172895
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 19,
+        "start_s": 54.32158059645149,
+        "end_s": 56.05453899584749,
+        "gesturing_arm": "L",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 55.8,
+        "previous_counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 55.15473367308418
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 55.15473367308418
+          }
+        ],
+        "counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 0
+        }
+      },
+      {
+        "group": 20,
+        "start_s": 57.12097493393733,
+        "end_s": 58.82060721026802,
+        "gesturing_arm": "L",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 58.5,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 57.52088841072103
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 57.920801887504716
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 58.38736761041903
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 57.52088841072103
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 57.920801887504716
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 58.38736761041903
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 21,
+        "start_s": 59.587108040770104,
+        "end_s": 61.22008807097018,
+        "gesturing_arm": "L",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 60.9,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 59.88704314835787
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 60.48691336353341
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 60.92015296338241
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 59.88704314835787
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 60.48691336353341
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 60.92015296338241
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 22,
+        "start_s": 63.0530248395621,
+        "end_s": 64.7859832389581,
+        "gesturing_arm": "L",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 64.35,
+        "previous_counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 63.81952567006417
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 63.81952567006417
+          }
+        ],
+        "counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 0
+        }
+      },
+      {
+        "group": 23,
+        "start_s": 65.58581019252549,
+        "end_s": 67.31876859192148,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 66.95,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 65.91907142317855
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 66.5189416383541
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 66.91885511513779
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 65.91907142317855
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 66.5189416383541
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 66.91885511513779
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 24,
+        "start_s": 67.98529105322763,
+        "end_s": 69.78490169875424,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 69.45,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 68.2852261608154
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 68.85177025292563
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 69.28500985277464
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 68.2852261608154
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 68.85177025292563
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 69.28500985277464
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 25,
+        "start_s": 70.28479354473386,
+        "end_s": 72.2177086825217,
+        "gesturing_arm": "L",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 71.8,
+        "previous_counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 71.21792499056248
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 71.21792499056248
+          }
+        ],
+        "counts": {
+          "left": 0,
+          "right": 1,
+          "forward": 0
+        }
+      },
+      {
+        "group": 26,
+        "start_s": 72.48431766704417,
+        "end_s": 74.48388505096263,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 74.1,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 72.91755726689317
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 73.48410135900339
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 73.9506670819177
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 72.91755726689317
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 73.48410135900339
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 73.9506670819177
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      },
+      {
+        "group": 27,
+        "start_s": 76.05021283503208,
+        "end_s": 77.68319286523216,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 77.35,
+        "previous_counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 76.28349569648924
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 76.28349569648924
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 0,
+          "forward": 0
+        }
+      },
+      {
+        "group": 28,
+        "start_s": 78.48301981879955,
+        "end_s": 80.4492610796527,
+        "gesturing_arm": "L",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 80.1,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 0
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 79.1162161570404
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 79.68276024915062
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 79.1162161570404
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 79.68276024915062
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 0
+        }
+      },
+      {
+        "group": 29,
+        "start_s": 80.98247904869763,
+        "end_s": 82.68211132502832,
+        "gesturing_arm": "R",
+        "expected": [
+          "left",
+          "right",
+          "forward"
+        ],
+        "manual_front_center_s": 82.3,
+        "previous_counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        },
+        "previous_events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 81.31574027935069
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 81.84895824839562
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 82.34885009437524
+          }
+        ],
+        "events": [
+          {
+            "track_id": 3,
+            "direction": "left",
+            "time_s": 81.31574027935069
+          },
+          {
+            "track_id": 3,
+            "direction": "right",
+            "time_s": 81.84895824839562
+          },
+          {
+            "track_id": 3,
+            "direction": "forward",
+            "time_s": 82.34885009437524
+          }
+        ],
+        "counts": {
+          "left": 1,
+          "right": 1,
+          "forward": 1
+        }
+      }
+    ],
+    "missing_groups": {
+      "left": [
+        2,
+        9,
+        19,
+        22,
+        25
+      ],
+      "right": [
+        7,
+        8,
+        11,
+        13,
+        14,
+        15,
+        27
+      ],
+      "forward": [
+        7,
+        9,
+        11,
+        14,
+        19,
+        22,
+        25,
+        27,
+        28
+      ]
+    }
+  },
+  "comparison_to_v8": [
+    {
+      "name": "8",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      }
+    },
+    {
+      "name": "9",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      }
+    },
+    {
+      "name": "3",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      }
+    },
+    {
+      "name": "4",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      }
+    },
+    {
+      "name": "13",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      }
+    },
+    {
+      "name": "14",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      }
+    },
+    {
+      "name": "16",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      }
+    },
+    {
+      "name": "21_27_17",
+      "previous_dominant_counts": {
+        "forward": 3,
+        "left": 3,
+        "right": 3
+      },
+      "current_dominant_counts": {
+        "forward": 3,
+        "left": 3,
+        "right": 3
+      }
+    },
+    {
+      "name": "22_32_55",
+      "previous_dominant_counts": {
+        "forward": 7,
+        "left": 6,
+        "right": 8
+      },
+      "current_dominant_counts": {
+        "forward": 7,
+        "left": 6,
+        "right": 8
+      }
+    },
+    {
+      "name": "21_14_58",
+      "previous_dominant_counts": {
+        "forward": 19,
+        "left": 24,
+        "right": 22
+      },
+      "current_dominant_counts": {
+        "forward": 20,
+        "left": 24,
+        "right": 22
+      }
+    }
+  ],
+  "program_changes": [
+    "Per-person forearm projection scale from bounded high-quality observations; no model training or extra inference.",
+    "Compete both possible depth signs against body front/side directions, plus bounded contraction evidence after a separately stable lateral endpoint.",
+    "Maintain independent contiguous forward votes rather than overwriting preparatory lateral votes; bounded wait resolves a stronger flat-depth side label one frame earlier.",
+    "Require a real new pose and retain lowering, bimanual, weak-walking, body-turn and missing-reference suppression.",
+    "Scale the voting window to the full required duration, fixing impossible compact/inferred front confirmation at high FPS."
+  ],
+  "known_remaining_errors": [
+    "Real-video gain is limited: 21_14_58 forward 19 to 20, left/right remain 24/22. Human review has 29 of each; 5 left, 7 right and 9 forward still missing.",
+    "Synthetic 22 angle/start-side cases confirm forward v8=4, v9=18. These assume correct torso orientation and are not field accuracy. Four ±45-degree ambiguous cases still miss front, and the original body rule can mislabel a side.",
+    "If torso heading and arm depth both fail, projection compensation remains ambiguous. Weak depth without a prior stable pointing endpoint is not independently labeled forward by this supplement.",
+    "13 and 16 still miss right; 3 retains some direction errors, including dominant F1/L0/R1 on L/R-only footage and a background forward false confirmation.",
+    "22_32_55 remains F7/L6/R8: extra right near 21.24s, last-group left near 48.11s mislabeled right, true right near 50.5s missed."
+  ]
+}
