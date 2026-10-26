@@ -1,0 +1,41 @@
+{
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "opencv_imported": "5.0.0",
+  "packages": {
+    "numpy": "2.2.6",
+    "pillow": "12.2.0",
+    "torch": "2.10.0+cu128",
+    "torchvision": "0.25.0+cu128",
+    "ultralytics": "8.4.60",
+    "lap": "0.5.13",
+    "tensorrt-cu12": "10.13.3.9",
+    "onnx": "1.21.0",
+    "onnxruntime-gpu": "1.23.2"
+  },
+  "engines": [
+    {
+      "engine_sha256": "05e9d88648c1f8b837d34c620753d96c5b4afe2ff6eb714a2cfe075c20d7115d",
+      "onnx_sha256": "8a57d6731cbbcb3a056d86656e2375597e9b31c8351fed83c8e0d24015a39e00",
+      "tensorrt": "10.13.3.9",
+      "torch": "2.10.0+cu128",
+      "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "compute_capability": [
+        12,
+        0
+      ],
+      "precision": "FP16 with FP32-sensitive reductions"
+    },
+    {
+      "engine_sha256": "96541c730796f28d6cb5b1761918b8a0f27ee06baf75c214eefea2f3984c4a47",
+      "onnx_sha256": "bf6e62d1181f511f79b143390e5ff9192b25545e0c8e83e647a68783d02839fc",
+      "tensorrt": "10.13.3.9",
+      "torch": "2.10.0+cu128",
+      "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "compute_capability": [
+        12,
+        0
+      ],
+      "precision": "FP16 with FP32-sensitive reductions"
+    }
+  ]
+}

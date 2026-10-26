@@ -1,0 +1,392 @@
+{
+  "created_at": "2026-10-26T00:08:42.798642+08:00",
+  "rule_profile": "side_forward_v4",
+  "rule_sha256": "373694867936f7785aa1ede8116081c6d69c28827d8db9bbb6b6b439df9b84c6",
+  "processed_frames": 1922,
+  "complete_exports": 7,
+  "all_h264_decoded": true,
+  "all_frame_states_verified": true,
+  "manual_labels_used_at_runtime": false,
+  "results": [
+    {
+      "clip": "3.mp4",
+      "dominant_track_id": 2,
+      "v3_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      },
+      "v4_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      },
+      "expected_counts": {
+        "forward": 0,
+        "left": 1,
+        "right": 1
+      },
+      "missing_counts": {
+        "left": 1
+      },
+      "excess_counts": {
+        "forward": 1
+      },
+      "tracks": [
+        {
+          "track_id": 1,
+          "observed_frames": 269,
+          "counts": {
+            "forward": 0,
+            "left": 1,
+            "right": 1
+          },
+          "passed": false,
+          "events": [
+            {
+              "track_id": 1,
+              "direction": "left",
+              "time_s": 4.608378870673953
+            },
+            {
+              "track_id": 1,
+              "direction": "right",
+              "time_s": 5.7103825136612025
+            }
+          ]
+        },
+        {
+          "track_id": 2,
+          "observed_frames": 532,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 1
+          },
+          "passed": false,
+          "events": [
+            {
+              "track_id": 2,
+              "direction": "forward",
+              "time_s": 14.726775956284152
+            },
+            {
+              "track_id": 2,
+              "direction": "right",
+              "time_s": 15.494839101396478
+            }
+          ]
+        },
+        {
+          "track_id": 4,
+          "observed_frames": 114,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "events": [
+            {
+              "track_id": 4,
+              "direction": "forward",
+              "time_s": 2.1038251366120218
+            }
+          ]
+        }
+      ],
+      "wall_processing_fps": 24.709803832894025
+    },
+    {
+      "clip": "4.mp4",
+      "dominant_track_id": 1,
+      "v3_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 0
+      },
+      "v4_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 0
+      },
+      "expected_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      },
+      "missing_counts": {
+        "left": 1
+      },
+      "excess_counts": {},
+      "tracks": [
+        {
+          "track_id": 1,
+          "observed_frames": 180,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "events": [
+            {
+              "track_id": 1,
+              "direction": "forward",
+              "time_s": 2.311004784688995
+            }
+          ]
+        }
+      ],
+      "wall_processing_fps": 41.534576611007985
+    },
+    {
+      "clip": "8.mp4",
+      "dominant_track_id": 1,
+      "v3_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      },
+      "v4_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      },
+      "expected_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "missing_counts": {
+        "left": 1
+      },
+      "excess_counts": {},
+      "tracks": [
+        {
+          "track_id": 1,
+          "observed_frames": 183,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 1
+          },
+          "passed": false,
+          "events": [
+            {
+              "track_id": 1,
+              "direction": "forward",
+              "time_s": 2.8333333333333335
+            },
+            {
+              "track_id": 1,
+              "direction": "right",
+              "time_s": 3.1333333333333333
+            }
+          ]
+        }
+      ],
+      "wall_processing_fps": 26.151248746094847
+    },
+    {
+      "clip": "9.mp4",
+      "dominant_track_id": 1,
+      "v3_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "v4_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "expected_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "missing_counts": {},
+      "excess_counts": {},
+      "tracks": [
+        {
+          "track_id": 1,
+          "observed_frames": 257,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 1
+          },
+          "passed": true,
+          "events": [
+            {
+              "track_id": 1,
+              "direction": "forward",
+              "time_s": 4.9336769759450165
+            },
+            {
+              "track_id": 1,
+              "direction": "right",
+              "time_s": 5.168613974799541
+            },
+            {
+              "track_id": 1,
+              "direction": "left",
+              "time_s": 5.571363115693012
+            }
+          ]
+        }
+      ],
+      "wall_processing_fps": 30.488395173785747
+    },
+    {
+      "clip": "13.mp4",
+      "dominant_track_id": 1,
+      "v3_counts": {
+        "forward": 0,
+        "left": 0,
+        "right": 0
+      },
+      "v4_counts": {
+        "forward": 0,
+        "left": 0,
+        "right": 0
+      },
+      "expected_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "missing_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "excess_counts": {},
+      "tracks": [
+        {
+          "track_id": 1,
+          "observed_frames": 149,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "events": []
+        }
+      ],
+      "wall_processing_fps": 41.814030989635114
+    },
+    {
+      "clip": "14.mp4",
+      "dominant_track_id": 1,
+      "v3_counts": {
+        "forward": 2,
+        "left": 0,
+        "right": 1
+      },
+      "v4_counts": {
+        "forward": 2,
+        "left": 0,
+        "right": 1
+      },
+      "expected_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "missing_counts": {
+        "left": 1
+      },
+      "excess_counts": {
+        "forward": 1
+      },
+      "tracks": [
+        {
+          "track_id": 1,
+          "observed_frames": 220,
+          "counts": {
+            "forward": 2,
+            "left": 0,
+            "right": 1
+          },
+          "passed": false,
+          "events": [
+            {
+              "track_id": 1,
+              "direction": "forward",
+              "time_s": 2.8792397660818714
+            },
+            {
+              "track_id": 1,
+              "direction": "right",
+              "time_s": 3.3144736842105265
+            },
+            {
+              "track_id": 1,
+              "direction": "forward",
+              "time_s": 3.5823099415204678
+            }
+          ]
+        }
+      ],
+      "wall_processing_fps": 40.364668578682405
+    },
+    {
+      "clip": "16.mp4",
+      "dominant_track_id": 2,
+      "v3_counts": {
+        "forward": 0,
+        "left": 1,
+        "right": 0
+      },
+      "v4_counts": {
+        "forward": 1,
+        "left": 2,
+        "right": 0
+      },
+      "expected_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "missing_counts": {
+        "right": 1
+      },
+      "excess_counts": {
+        "left": 1
+      },
+      "tracks": [
+        {
+          "track_id": 2,
+          "observed_frames": 221,
+          "counts": {
+            "forward": 1,
+            "left": 2,
+            "right": 0
+          },
+          "passed": false,
+          "events": [
+            {
+              "track_id": 2,
+              "direction": "left",
+              "time_s": 2.3666666666666667
+            },
+            {
+              "track_id": 2,
+              "direction": "forward",
+              "time_s": 3.1666666666666665
+            },
+            {
+              "track_id": 2,
+              "direction": "left",
+              "time_s": 3.433333333333333
+            }
+          ]
+        }
+      ],
+      "wall_processing_fps": 38.687251396407675
+    }
+  ]
+}

@@ -1,0 +1,482 @@
+{
+  "created_at": "2026-10-26T00:01:20.949110+08:00",
+  "profile": "side_forward_v4",
+  "rule_sha256": "373694867936f7785aa1ede8116081c6d69c28827d8db9bbb6b6b439df9b84c6",
+  "unit_tests_passed": 76,
+  "new_clip": {
+    "source": "D:\\ASDF\\Pictures\\Camera Roll\\WIN_20261025_22_32_55_Pro.mp4",
+    "frames": 1752,
+    "events": [
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 7.57541095890411,
+        "counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 9.326172602739726,
+        "counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 11.043265753424658,
+        "counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 1
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 14.039761643835616,
+        "counts": {
+          "forward": 1,
+          "left": 2,
+          "right": 1
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 15.925197260273974,
+        "counts": {
+          "forward": 1,
+          "left": 2,
+          "right": 2
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 17.642290410958903,
+        "counts": {
+          "forward": 2,
+          "left": 2,
+          "right": 2
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 21.312156164383563,
+        "counts": {
+          "forward": 2,
+          "left": 2,
+          "right": 3
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 21.91818904109589,
+        "counts": {
+          "forward": 2,
+          "left": 3,
+          "right": 3
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 23.365934246575343,
+        "counts": {
+          "forward": 2,
+          "left": 3,
+          "right": 4
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 25.689060273972604,
+        "counts": {
+          "forward": 3,
+          "left": 3,
+          "right": 4
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 28.78656164383562,
+        "counts": {
+          "forward": 3,
+          "left": 4,
+          "right": 4
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 30.806671232876713,
+        "counts": {
+          "forward": 3,
+          "left": 4,
+          "right": 5
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 32.69210684931507,
+        "counts": {
+          "forward": 4,
+          "left": 4,
+          "right": 5
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 34.27452602739726,
+        "counts": {
+          "forward": 4,
+          "left": 5,
+          "right": 5
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 36.49664657534247,
+        "counts": {
+          "forward": 4,
+          "left": 5,
+          "right": 6
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 38.6514301369863,
+        "counts": {
+          "forward": 5,
+          "left": 5,
+          "right": 6
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 41.00822465753425,
+        "counts": {
+          "forward": 5,
+          "left": 6,
+          "right": 6
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 43.53336164383562,
+        "counts": {
+          "forward": 5,
+          "left": 6,
+          "right": 7
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 45.11578082191781,
+        "counts": {
+          "forward": 6,
+          "left": 6,
+          "right": 7
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 48.11227671232877,
+        "counts": {
+          "forward": 6,
+          "left": 6,
+          "right": 8
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 50.5027397260274,
+        "counts": {
+          "forward": 6,
+          "left": 7,
+          "right": 8
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 52.42184383561644,
+        "counts": {
+          "forward": 7,
+          "left": 7,
+          "right": 8
+        }
+      }
+    ],
+    "people": [
+      {
+        "track_id": 1,
+        "counts": {
+          "forward": 7,
+          "left": 7,
+          "right": 8
+        },
+        "passed": true,
+        "passed_s": 11.043265753424658
+      }
+    ],
+    "wall_processing_fps": 29.961830987307966,
+    "mean_inference_ms": 12.518617578093219,
+    "frame_states_and_axes_verified": true,
+    "mode": "fresh full model inference"
+  },
+  "forward_hits": 7,
+  "forward_labels": 7,
+  "labels": "User confirmed seven left/right/forward sets; windows visually reviewed.",
+  "known_remaining_errors": [
+    "Extra right event near 21.31s during the transition before group 3.",
+    "Group 7: left near 48.11s classified right; right near 50.50s classified left."
+  ],
+  "previous_camera": {
+    "source": "D:\\ASDF\\Pictures\\Camera Roll\\WIN_20261025_21_27_17_Pro.mp4",
+    "frames": 603,
+    "events": [
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 3.06597501381979,
+        "counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 0
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 4.598962520729685,
+        "counts": {
+          "forward": 0,
+          "left": 1,
+          "right": 1
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 5.965320950801548,
+        "counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 1
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 9.531183195135434,
+        "counts": {
+          "forward": 1,
+          "left": 2,
+          "right": 1
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 10.564283471531233,
+        "counts": {
+          "forward": 1,
+          "left": 2,
+          "right": 2
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 11.89731608623549,
+        "counts": {
+          "forward": 2,
+          "left": 2,
+          "right": 2
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 15.99639137645108,
+        "counts": {
+          "forward": 2,
+          "left": 3,
+          "right": 2
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 17.062817468214483,
+        "counts": {
+          "forward": 2,
+          "left": 3,
+          "right": 3
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 18.429175898286346,
+        "counts": {
+          "forward": 3,
+          "left": 3,
+          "right": 3
+        }
+      }
+    ],
+    "people": [
+      {
+        "track_id": 1,
+        "counts": {
+          "forward": 3,
+          "left": 3,
+          "right": 3
+        },
+        "passed": true,
+        "passed_s": 5.965320950801548
+      }
+    ],
+    "wall_processing_fps": 37.501974450896185,
+    "mean_inference_ms": 13.127600493845506,
+    "frame_states_and_axes_verified": true,
+    "mode": "fresh full model inference"
+  },
+  "regression_9": {
+    "source": "E:\\粉末冶金\\指差检测\\inputs\\9.mp4",
+    "frames": 291,
+    "events": [
+      {
+        "track_id": 1,
+        "direction": "forward",
+        "time_s": 4.9336769759450165,
+        "counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 0
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "right",
+        "time_s": 5.168613974799541,
+        "counts": {
+          "forward": 1,
+          "left": 0,
+          "right": 1
+        }
+      },
+      {
+        "track_id": 1,
+        "direction": "left",
+        "time_s": 5.571363115693012,
+        "counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 1
+        }
+      }
+    ],
+    "people": [
+      {
+        "track_id": 1,
+        "counts": {
+          "forward": 1,
+          "left": 1,
+          "right": 1
+        },
+        "passed": true,
+        "passed_s": 5.571363115693012
+      },
+      {
+        "track_id": 2,
+        "counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 0
+        },
+        "passed": false,
+        "passed_s": null
+      },
+      {
+        "track_id": 3,
+        "counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 0
+        },
+        "passed": false,
+        "passed_s": null
+      },
+      {
+        "track_id": 5,
+        "counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 0
+        },
+        "passed": false,
+        "passed_s": null
+      },
+      {
+        "track_id": 7,
+        "counts": {
+          "forward": 0,
+          "left": 0,
+          "right": 0
+        },
+        "passed": false,
+        "passed_s": null
+      }
+    ],
+    "wall_processing_fps": 39.44694034096874,
+    "mean_inference_ms": 17.79227113172002,
+    "frame_states_and_axes_verified": true,
+    "mode": "fresh full model inference"
+  },
+  "source_metadata": {
+    "frames": 1752,
+    "fps": 29.701358938888436,
+    "size": [
+      1920,
+      1080
+    ]
+  },
+  "source_sha256": "e449f1980dfa2b4358789f0be7f6d2f556290f56a08b1e1315b0a2c042dde5e3",
+  "h264_full_decode": true,
+  "engines": [
+    {
+      "name": "rtmw3d_l_fp16",
+      "sha256": "05e9d88648c1f8b837d34c620753d96c5b4afe2ff6eb714a2cfe075c20d7115d",
+      "matches_original_build": true
+    },
+    {
+      "name": "yolox_s_fp16",
+      "sha256": "96541c730796f28d6cb5b1761918b8a0f27ee06baf75c214eefea2f3984c4a47",
+      "matches_original_build": true
+    }
+  ],
+  "scope": "This clip was used for tuning. Seven forward hits are not an independent accuracy estimate; other old-video errors remain."
+}

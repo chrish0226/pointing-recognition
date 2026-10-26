@@ -1,0 +1,32 @@
+# Local runtime, private factory footage and generated diagnostics
+.venv*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+inputs/
+models/
+outputs/
+runtime/
+yolo_runtime/
+live_output/
+verification/restore_1240/
+verification/person_relative_v3/
+
+# Credentials and local editor state
+.env
+.env.*
+*.pem
+*.key
+.vscode/
+.idea/
+
+# Model and media binaries must be provisioned locally
+*.engine
+*.onnx
+*.pth
+*.pt
+*.mp4
+*.avi
+*.mov
+*.jsonl
+

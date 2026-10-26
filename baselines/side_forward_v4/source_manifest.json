@@ -1,0 +1,85 @@
+{
+  "profile": "side_forward_v4",
+  "files": [
+    {
+      "file": "balanced_pointing_rules.py",
+      "sha256": "373694867936f7785aa1ede8116081c6d69c28827d8db9bbb6b6b439df9b84c6"
+    },
+    {
+      "file": "BASELINE.md",
+      "sha256": "c00259330d6bb1f87024a4c42512118974504edcfb2f74214ef80a60de45252b"
+    },
+    {
+      "file": "README.md",
+      "sha256": "5d73662aeb57f431155cefdebf04714f498b3588ba1a9b2c090e83dd61e07459"
+    },
+    {
+      "file": "realtime_rtmw3d.py",
+      "sha256": "a3374fa2657761a88aae40d030985771883d0be5cda7692e293aa3cca3e2e788"
+    },
+    {
+      "file": "regression_fixtures/side_front_real.json",
+      "sha256": "4dfcb298adf5a87368c4ff133057134a26098a3f56c42340c2352ce57541ee36"
+    },
+    {
+      "file": "regression_fixtures/yolo_left_with_ghost_forward.json",
+      "sha256": "378214ed1657d549cdb68d2ac14343a2d73e91c4556c8e91b39ae6a8e261c9f4"
+    },
+    {
+      "file": "rtmw3d_pointing_rules.py",
+      "sha256": "2a723c31fc4ea4eac077198ecc06b2a8c12389811b425e8b8ba503ef65cb9233"
+    },
+    {
+      "file": "rtmw3d_trt_pointing.py",
+      "sha256": "7d5fcd69dfdf78890c6aa568031dd4c6f4343ef22d1ff258fe52b8de8ec68078"
+    },
+    {
+      "file": "rtmw_trt_runtime.py",
+      "sha256": "676ba795144b93caf9e6d3573656717d7e6edf7cdc1a6b611f522753d53f1906"
+    },
+    {
+      "file": "run_realtime.cmd",
+      "sha256": "d12fd96af1b9d0d54f7d54d4f1edd44c5a72f91a1957faf8fb9b904c2ec69301"
+    },
+    {
+      "file": "test_balanced_pointing_rules.py",
+      "sha256": "909799e3fe5170373b3c044555dd792246e090dcbb77babc4cae7da1def0af27"
+    },
+    {
+      "file": "test_current_body_rules.py",
+      "sha256": "1b2f09718f78adc04f9c3beae39d9a81ac0a925c481e2df6580fec32573b4c5e"
+    },
+    {
+      "file": "test_realtime_rtmw3d.py",
+      "sha256": "a2c7ae2db0c54233c9fb12e5e90eadae17b74e36f83c245257f5e2d528303bf3"
+    },
+    {
+      "file": "test_rtmw3d_pointing_rules.py",
+      "sha256": "f637b8814c623513d0e4334e7da5b72d3df50e43d7e4082698b825eaf05006a4"
+    },
+    {
+      "file": "test_rtmw3d_trt_adapters.py",
+      "sha256": "1bba87ddf05e1db54577a31b4c1be5cd8009f376db729a046dc63461da23adfe"
+    },
+    {
+      "file": "test_side_forward_rules.py",
+      "sha256": "996402abb30ca0d75bb56fb2d2645dd24673eaf8ce1abfbcaddc620258288ddc"
+    },
+    {
+      "file": "test_yolo_pointing_simple.py",
+      "sha256": "081e786ae0d2583b7f85016bd08545a887f5d4f784e30d5a2606c09dc3a0d870"
+    },
+    {
+      "file": "yolo_pointing_simple.py",
+      "sha256": "4f50526bb965cac423ad65634885baf395923f83d3c176b7d462723a22499d8b"
+    },
+    {
+      "file": "三维关键点与几何判定说明.md",
+      "sha256": "94b8b3d11acf62de30fe6648141bf077f5e6b269ce7bec0c2ffd13185a69de6c"
+    },
+    {
+      "file": "实时推理使用说明.md",
+      "sha256": "6ed49c70d61b2c3c8e76575f34efa47be8e4d19fa3dd376cd45b236c2288816b"
+    }
+  ]
+}
