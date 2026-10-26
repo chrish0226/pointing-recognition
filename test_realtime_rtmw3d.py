@@ -123,6 +123,19 @@ class RealtimeInputTests(unittest.TestCase):
         self.assertEqual(people[0]['state']['counts'], {'forward': 0, 'left': 0, 'right': 0})
         self.assertEqual(pipeline.generation, 1)
 
+    def test_rule_boundary_excludes_all_hand_and_finger_landmarks(self):
+        from test_natural_pointing import compact_pose
+        xyz, xy, scores = compact_pose('left')
+        pipeline = LivePipeline(30,
+            detector=lambda image: np.array([[20,20,100,180,.9]],np.float32),
+            pose=lambda image, box: (xy, scores, np.zeros(133), xyz, None))
+        with patch.object(pipeline.counter, 'update', wraps=pipeline.counter.update) as update:
+            people, _, _ = pipeline.infer(self.packet(0))
+            self.assertEqual([a.shape for a in update.call_args.args[3:]],
+                             [(17,3), (17,2), (17,)])
+        self.assertNotIn('hand_keypoints_xy', people[0])
+        self.assertNotIn('hand_keypoint_confidence', people[0])
+
 
 class RealtimeCountTests(unittest.TestCase):
     def setUp(self):

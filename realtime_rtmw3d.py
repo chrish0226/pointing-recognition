@@ -31,7 +31,7 @@ DIRECTION_NAMES = {'forward': '前', 'left': '左', 'right': '右'}
 
 def rule_fingerprint():
     sources = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-               for name in ('balanced_pointing_rules.py', 'natural_pointing.py')}
+               for name in ('balanced_pointing_rules.py', 'arm_geometry.py')}
     bundle = hashlib.sha256(json.dumps(sources, sort_keys=True).encode('utf-8')).hexdigest()
     return {'rule_sha256': sources['balanced_pointing_rules.py'],
             'rule_sources_sha256': sources, 'rule_bundle_sha256': bundle}
@@ -261,7 +261,9 @@ class LivePipeline:
             xy, scores, depth, xyz, _ = self.pose(image, track[:4])
             pose_ms += (time.perf_counter() - t) * 1000
             t = time.perf_counter()
-            state, arms = self.counter.update(tid, packet.index, packet.time_s, xyz, xy, scores)
+            # Finger/hand landmarks never enter the recognition rule boundary.
+            state, arms = self.counter.update(tid, packet.index, packet.time_s,
+                                             xyz[:17], xy[:17], scores[:17])
             confirmation = self.tally.observe(tid, self.counter.people[tid]['phase'])
             state = self.tally.decorate(state)
             rule_ms += (time.perf_counter() - t) * 1000
@@ -272,8 +274,6 @@ class LivePipeline:
                 'keypoints_xy': xy[:17].round(3).tolist(),
                 'keypoint_confidence': scores[:17].round(5).tolist(),
                 'keypoints_3d_assumed_camera': xyz[:17].round(6).tolist(),
-                'hand_keypoints_xy': xy[91:133].round(3).tolist() if len(xy)>=133 else None,
-                'hand_keypoint_confidence': scores[91:133].round(5).tolist() if len(scores)>=133 else None,
                 'directions': [a['direction'] for a in arms if a['selected']],
                 'arms': arms,
                 'body_reference': {key: value.tolist() if isinstance(value, np.ndarray) else value
@@ -526,7 +526,7 @@ def run(args):
                           'Frame age starts after capture/decode, not at camera exposure.',
                           'Monocular XYZ remains uncalibrated; no separate face model or manual ROI.',
                           'Existing nose/ear points optionally assist heading; missing points fall back to body rules.',
-                          'Existing index-finger XY points optionally support compact side gestures and veto contradictory profile-forward projections.',
+                          'Gesture evidence uses shoulder/elbow/wrist only; hand/finger landmarks are excluded at the rule input boundary.',
                           'Continuous side-to-front changes use projected shortening, height consistency and depth evidence, without a required new raise.']}
             emit({'type': 'session_end', 'status': status, 'processed_frames': processed})
             if args.log:

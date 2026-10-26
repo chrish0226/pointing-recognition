@@ -12,16 +12,26 @@ from test_current_body_rules import body_pose
 
 SEGMENTS = json.loads((Path(__file__).parent /
                       'regression_fixtures/natural_gestures_real.json').read_text(encoding='utf-8'))['segments']
+SEGMENTS.update(json.loads((Path(__file__).parent /
+                           'regression_fixtures/arm_geometry_real.json').read_text(encoding='utf-8'))['segments'])
 
 
-def replay(name, offset=0):
+def replay(name, offset=0, finger_mode='missing', missing_head=False):
     counter = BalancedPointing()
     tally = GestureTally()
     events = []
     for row in SEGMENTS[name]:
-        p = np.zeros((133, 3)); q = np.zeros((133, 2)); s = np.zeros(133)
+        p = np.zeros((17, 3)); q = np.zeros((17, 2)); s = np.zeros(17)
         p[:17] = row['xyz']; q[:17] = row['xy']; s[:17] = row['scores']
-        q[91:133] = row['hands_xy']; s[91:133] = row['hands_scores']
+        if finger_mode != 'missing':
+            rng = np.random.default_rng(row['frame'])
+            p = np.concatenate((p, rng.normal(size=(116, 3)) * 1000))
+            q = np.concatenate((q, rng.normal(size=(116, 2)) * 10000))
+            s = np.concatenate((s, np.ones(116)))
+            if finger_mode == 'nan':
+                p[17:] = np.nan; q[17:] = np.nan; s[17:] = np.nan
+        if missing_head:
+            p[:5] = np.nan; q[:5] = np.nan; s[:5] = 0
         state, _ = counter.update(1, row['frame'], row['time_s'] + offset, p, q, s)
         event = tally.observe(1, counter.people[1]['phase'])
         if event:
@@ -82,22 +92,36 @@ class NaturalPointingTests(unittest.TestCase):
         self.assertEqual(state['done'], [])
         self.assertEqual(events, [])
 
-    def test_compact_cross_chest_point_uses_agreeing_forearm_and_index(self):
-        for direction in ('left', 'right'):
-            with self.subTest(direction=direction):
-                state = self.feed_compact(direction)
-                self.assertEqual(state['done'], [direction])
-                self.assertEqual(state['counts'][direction], 1)
-                self.assertFalse(state['passed'])
+    def test_folded_high_arm_real_left_does_not_add_forward(self):
+        state, events = replay('14')
+        self.assertEqual(state['counts'], {'forward': 1, 'left': 1, 'right': 1})
+        self.assertEqual([d for d, _ in events], ['left', 'right', 'forward'])
+        for (_, t), (lo, hi) in zip(events, ((2.7, 3.05), (3.1, 3.5), (3.5, 3.8))):
+            self.assertTrue(lo <= t <= hi, events)
 
-    def test_optional_hands_missing_preserves_body_fallback(self):
-        natural = self.feed_compact('left', pointer=False)
-        body_only = self.feed_compact('left', pointer=False, config={'natural_gestures': False})
-        self.assertEqual(natural['counts'], body_only['counts'])
+    def test_finger_content_cannot_change_real_gesture_events(self):
+        for name in ('natural_three', '14', '16', 'glove_handling', 'walking_swing'):
+            expected = replay(name)
+            for mode in ('random', 'nan'):
+                with self.subTest(name=name, finger_mode=mode):
+                    self.assertEqual(replay(name, finger_mode=mode), expected)
 
-    def test_compact_side_does_not_require_head_landmarks(self):
-        state = self.feed_compact('left', missing_head=True)
-        self.assertEqual(state['done'], ['left'])
+    def test_real_side_does_not_require_head_landmarks(self):
+        state, events = replay('14', missing_head=True)
+        self.assertEqual([d for d, _ in events], ['left', 'right', 'forward'])
+        self.assertTrue(state['passed'])
+
+    def test_brief_extended_front_does_not_merge_into_left(self):
+        state, events = replay('16')
+        self.assertEqual([d for d, _ in events], ['left', 'forward'])
+        self.assertTrue(3.35 <= events[-1][1] <= 3.55)
+        self.assertFalse(state['passed'])  # Ambiguous right is not filled in.
+
+    def test_changing_only_finger_points_cannot_create_side_confirmation(self):
+        with_pointer = self.feed_compact('left', pointer=True)
+        without_pointer = self.feed_compact('left', pointer=False)
+        self.assertEqual(with_pointer, without_pointer)
+        self.assertEqual(with_pointer['counts']['left'], 0)
 
     def test_full_body_and_hand_inputs_are_not_changed(self):
         arrays = compact_pose('left')

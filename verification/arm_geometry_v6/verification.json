@@ -1,0 +1,1032 @@
+{
+  "created_at": "2026-10-26T13:02:59.349200+08:00",
+  "profile": "arm_geometry_v6",
+  "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+  "rule_sources_sha256": {
+    "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+    "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+  },
+  "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+  "baseline_commit": "9c2459ed6f85c08df37c3b48d53263bd6db84c63",
+  "previous_version_commit": "d5325ce323b67db6875b7abbe34ffad591187b7b",
+  "optimization_branch": "improve/arm-geometry-v6",
+  "unit_tests_passed": 88,
+  "unit_test_command": ".venv_rtmw3d_trt/Scripts/python.exe -m unittest discover -s . -p test_*.py -q",
+  "full_model_video_runs": 9,
+  "total_frames": 4277,
+  "all_h264_decode_and_frame_states_verified": true,
+  "hand_finger_inputs_and_log_fields_excluded": true,
+  "gesture_landmarks": "Shoulder/elbow/wrist only; torso frame uses shoulders/hips; head optional for heading; feet optional for walking diagnostics.",
+  "positive_checks": [
+    "8 and 14: actual left/right/forward order, exactly once each.",
+    "16: forward near 3.47s recovered; duplicate left removed; ambiguous right remains unconfirmed.",
+    "9: one each F/L/R; no glove-handling confirmation before 4.3s.",
+    "21_27_17: exactly L/R/F repeated three times; no early walking-swing event before 2.9s.",
+    "22_32_55: seven forward confirmations within seven annotated forward action windows; no extra forward."
+  ],
+  "known_remaining_errors": [
+    "3: dominant ID2 remains F1/L0/R1, despite left/right-only annotation; ID1 F0/L1/R1. Background ID4 has a forward false confirmation.",
+    "4: F1/L0/R0; left is still missed.",
+    "13: F0/L1/R0; left recovered from v5 zero, but right/forward still missed.",
+    "16: F1/L1/R0; right near 3.1s remains ambiguous in predicted shoulder/elbow/wrist geometry.",
+    "22_32_55: F7/L5/R7, not 21 correctly classified gestures. Left near 28.5s and right near 43.2s are missed (regressions from v5); left near 48.1s is mislabeled right; right near 50.5s is missed. Extra right near 21.31s remains. Equal total right count conceals misses and false confirmations."
+  ],
+  "comparison_to_v5": [
+    {
+      "name": "8",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      }
+    },
+    {
+      "name": "9",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      }
+    },
+    {
+      "name": "3",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      }
+    },
+    {
+      "name": "4",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 0
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 0
+      }
+    },
+    {
+      "name": "13",
+      "previous_dominant_counts": {
+        "forward": 0,
+        "left": 0,
+        "right": 0
+      },
+      "current_dominant_counts": {
+        "forward": 0,
+        "left": 1,
+        "right": 0
+      }
+    },
+    {
+      "name": "14",
+      "previous_dominant_counts": {
+        "forward": 2,
+        "left": 0,
+        "right": 1
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      }
+    },
+    {
+      "name": "16",
+      "previous_dominant_counts": {
+        "forward": 1,
+        "left": 2,
+        "right": 0
+      },
+      "current_dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      }
+    },
+    {
+      "name": "21_27_17",
+      "previous_dominant_counts": {
+        "forward": 3,
+        "left": 3,
+        "right": 3
+      },
+      "current_dominant_counts": {
+        "forward": 3,
+        "left": 3,
+        "right": 3
+      }
+    },
+    {
+      "name": "22_32_55",
+      "previous_dominant_counts": {
+        "forward": 7,
+        "left": 7,
+        "right": 8
+      },
+      "current_dominant_counts": {
+        "forward": 7,
+        "left": 5,
+        "right": 7
+      }
+    }
+  ],
+  "engines": [
+    {
+      "name": "rtmw3d_l_fp16.engine",
+      "sha256": "05e9d88648c1f8b837d34c620753d96c5b4afe2ff6eb714a2cfe075c20d7115d",
+      "matches_preoptimization_baseline": true
+    },
+    {
+      "name": "yolox_s_fp16.engine",
+      "sha256": "96541c730796f28d6cb5b1761918b8a0f27ee06baf75c214eefea2f3984c4a47",
+      "matches_preoptimization_baseline": true
+    }
+  ],
+  "results": [
+    {
+      "name": "8",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\8.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\8\\result.mp4",
+      "frames": 218,
+      "fps": 30.0,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 183,
+        "2": 94,
+        "6": 15,
+        "9": 95,
+        "11": 83,
+        "13": 21
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 2.7666666666666666
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 3.1333333333333333
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 3.8
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 1
+          },
+          "passed": true,
+          "passed_s": 3.8
+        },
+        {
+          "track_id": 2,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 6,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 9,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 11,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 13,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 23.492877487734745,
+      "mean_inference_ms": 26.015078445465022
+    },
+    {
+      "name": "9",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\9.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\9\\result.mp4",
+      "frames": 291,
+      "fps": 29.795221843003414,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 257,
+        "2": 168,
+        "3": 2,
+        "5": 45,
+        "7": 27
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 4.9336769759450165
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 5.168613974799541
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 5.537800687285223
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 1
+          },
+          "passed": true,
+          "passed_s": 5.537800687285223
+        },
+        {
+          "track_id": 2,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 3,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 5,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 7,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 30.61516148637466,
+      "mean_inference_ms": 18.98745016620536
+    },
+    {
+      "name": "3",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\3.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\3\\result.mp4",
+      "frames": 549,
+      "fps": 29.945454545454545,
+      "size": [
+        720,
+        1280
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 2,
+      "track_frames": {
+        "1": 269,
+        "2": 532,
+        "4": 114,
+        "8": 374,
+        "11": 6,
+        "12": 1,
+        "13": 5,
+        "14": 2,
+        "16": 7,
+        "19": 11,
+        "21": 3
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 1
+      },
+      "events": [
+        {
+          "track_id": 4,
+          "direction": "forward",
+          "time_s": 2.1706132361870067
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 4.608378870673953
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 6.010928961748634
+        },
+        {
+          "track_id": 2,
+          "direction": "forward",
+          "time_s": 14.726775956284152
+        },
+        {
+          "track_id": 2,
+          "direction": "right",
+          "time_s": 15.494839101396478
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 0,
+            "left": 1,
+            "right": 1
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 2,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 1
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 4,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 8,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 11,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 12,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 13,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 14,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 16,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 19,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 21,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 25.61962043681604,
+      "mean_inference_ms": 24.929044626352933
+    },
+    {
+      "name": "4",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\4.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\4\\result.mp4",
+      "frames": 209,
+      "fps": 29.857142857142858,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 180
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 0,
+        "right": 0
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 2.311004784688995
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 40.76158238461735,
+      "mean_inference_ms": 11.734965557018606
+    },
+    {
+      "name": "13",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\13.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\13\\result.mp4",
+      "frames": 185,
+      "fps": 29.838709677419356,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 149
+      },
+      "dominant_counts": {
+        "forward": 0,
+        "left": 1,
+        "right": 0
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 1.6086486486486486
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 0,
+            "left": 1,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 40.559888703536664,
+      "mean_inference_ms": 11.676487566374645
+    },
+    {
+      "name": "14",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\14.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\14\\result.mp4",
+      "frames": 228,
+      "fps": 29.868995633187772,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 220
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 1
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 2.912719298245614
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 3.347953216374269
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 3.5823099415204678
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 1
+          },
+          "passed": true,
+          "passed_s": 3.5823099415204678
+        }
+      ],
+      "wall_processing_fps": 44.3746344080794,
+      "mean_inference_ms": 12.118839916646513
+    },
+    {
+      "name": "16",
+      "source": "C:\\Users\\ASDF\\Documents\\xwechat_files\\wxid_ssyertnmpqg529_9e3b\\msg\\attach\\d8a4aa2446c901ca1190f7c383cc836d\\2026-10\\Rec\\a229bdd911ce99a7\\V\\16.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\16\\result.mp4",
+      "frames": 242,
+      "fps": 30.0,
+      "size": [
+        1280,
+        720
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 2,
+      "track_frames": {
+        "1": 9,
+        "2": 221
+      },
+      "dominant_counts": {
+        "forward": 1,
+        "left": 1,
+        "right": 0
+      },
+      "events": [
+        {
+          "track_id": 2,
+          "direction": "left",
+          "time_s": 2.566666666666667
+        },
+        {
+          "track_id": 2,
+          "direction": "forward",
+          "time_s": 3.466666666666667
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 0,
+            "left": 0,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        },
+        {
+          "track_id": 2,
+          "counts": {
+            "forward": 1,
+            "left": 1,
+            "right": 0
+          },
+          "passed": false,
+          "passed_s": null
+        }
+      ],
+      "wall_processing_fps": 43.87486330574537,
+      "mean_inference_ms": 11.994233882162442
+    },
+    {
+      "name": "21_27_17",
+      "source": "D:\\ASDF\\Pictures\\Camera Roll\\WIN_20261025_21_27_17_Pro.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\21_27_17\\result.mp4",
+      "frames": 603,
+      "fps": 30.00676769553332,
+      "size": [
+        1920,
+        1080
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 603
+      },
+      "dominant_counts": {
+        "forward": 3,
+        "left": 3,
+        "right": 3
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 3.299255721393035
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 4.598962520729685
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 5.965320950801548
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 9.531183195135434
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 10.797564179104478
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 11.930641901603096
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 15.99639137645108
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 17.262772360420122
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 18.429175898286346
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 3,
+            "left": 3,
+            "right": 3
+          },
+          "passed": true,
+          "passed_s": 5.965320950801548
+        }
+      ],
+      "wall_processing_fps": 29.566457037921406,
+      "mean_inference_ms": 13.180892038619328
+    },
+    {
+      "name": "22_32_55",
+      "source": "D:\\ASDF\\Pictures\\Camera Roll\\WIN_20261025_22_32_55_Pro.mp4",
+      "video": "E:\\粉末冶金\\指差检测\\outputs\\arm_geometry_v6\\22_32_55\\result.mp4",
+      "frames": 1752,
+      "fps": 29.701358938888436,
+      "size": [
+        1920,
+        1080
+      ],
+      "model_inference": "fresh full video",
+      "rule_profile": "arm_geometry_v6",
+      "rule_sha256": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+      "rule_sources_sha256": {
+        "balanced_pointing_rules.py": "5541c48fd44d38413cfb4a7e018947e64a1465282e8c5a27c952d1d41ee7b35b",
+        "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+      },
+      "rule_bundle_sha256": "a37efd8856466cb51778c46267bcbf228a4ce5f16e1cd6812aa81164f078832a",
+      "h264_full_decode": true,
+      "frame_states_and_axes_verified": true,
+      "dominant_track_id": 1,
+      "track_frames": {
+        "1": 1562
+      },
+      "dominant_counts": {
+        "forward": 7,
+        "left": 5,
+        "right": 7
+      },
+      "events": [
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 7.57541095890411
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 9.326172602739726
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 11.076934246575343
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 14.039761643835616
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 15.925197260273974
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 17.844301369863015
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 21.312156164383563
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 21.91818904109589
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 23.60161369863014
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 25.689060273972604
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 30.806671232876713
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 32.69210684931507
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 34.34186301369863
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 36.49664657534247
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 38.685098630136984
+        },
+        {
+          "track_id": 1,
+          "direction": "left",
+          "time_s": 41.277572602739724
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 45.11578082191781
+        },
+        {
+          "track_id": 1,
+          "direction": "right",
+          "time_s": 48.11227671232877
+        },
+        {
+          "track_id": 1,
+          "direction": "forward",
+          "time_s": 52.62385479452055
+        }
+      ],
+      "people": [
+        {
+          "track_id": 1,
+          "counts": {
+            "forward": 7,
+            "left": 5,
+            "right": 7
+          },
+          "passed": true,
+          "passed_s": 11.076934246575343
+        }
+      ],
+      "wall_processing_fps": 28.585617237416788,
+      "mean_inference_ms": 12.655305022123423
+    }
+  ],
+  "scope": "Known videos used for tuning/regression, not held-out accuracy. Finger-free constraints improve 14/16 labeling but do not improve every video; side-view regressions are explicitly retained here."
+}

@@ -1,17 +1,17 @@
 """RTMW arm rules using a refreshed anatomical torso coordinate frame.
 
-Optional existing head landmarks resolve body heading; fingers may veto a
-contradictory projected forward direction. No separate face model is used.
+Optional existing head landmarks resolve body heading. Arm decisions use only
+shoulders, elbows and wrists. No separate face model is used.
 No video-specific timestamps, person IDs, ROI or forced direction completion.
 The camera/body reference remains a monocular estimate, not calibration.
 """
 from collections import Counter,deque
 import math
 import numpy as np
-from natural_pointing import apply_natural_evidence
+from arm_geometry import apply_arm_motion,direction_evidence
 
 REQUIRED=('forward','left','right')
-PROFILE='natural_pointing_v5'
+PROFILE='arm_geometry_v6'
 DEFAULTS={'smooth_frames':3,'reference_frames':60,'min_reference_frames':12,'min_joint_score':.35,
           'min_wrist_score':.45,'min_mean_score':.50,'raise_enter':-.64,
           'raise_exit':-.76,'min_reach':.18,'min_forearm':.06,
@@ -30,7 +30,7 @@ DEFAULTS={'smooth_frames':3,'reference_frames':60,'min_reference_frames':12,'min
           'body_turn_window_s':.25,'body_turn_degrees':20.,'weak_after_turn_s':.65,
           'walking_hip_speed':1.05,'walking_foot_speed':.50,
           'orientation_assist':True,'profile_front_settle_s':.22,'forward_height_spread':.12,
-          'natural_gestures':True}
+          'arm_geometry':True}
 
 
 def unit(v):
@@ -113,6 +113,8 @@ def observe_arms(p,q,s,ref,config,previous_active,current_sample=None):
         exit_pose=lift<config['raise_exit'] or (lift<-.66 and elbow_angle>165)
         active=bool(entry or (previous_active.get(side,False) and not exit_pose))
         direction=None;heading=None;ambiguity=0.
+        direction_scores={};forearm_side=False
+        legacy_direction=None;spatial_conflict=False
         if ref is not None and entry:
             v=p[wr]-p[sh];f=p[wr]-p[el]
             vw=np.array([v@ref['right'],v@ref['forward']])/torso3
@@ -135,6 +137,20 @@ def observe_arms(p,q,s,ref,config,previous_active,current_sample=None):
                 elif config['lateral_sector']<=abs(heading)<=155 and abs(vw[0])>.15 and horizontal>=config['spatial_reach']:
                     direction='right' if heading>0 else 'left'
                     ambiguity=min(abs(heading)-config['lateral_sector'],155-abs(heading))/45
+                if config['arm_geometry']:
+                    previous_direction=direction
+                    legacy_direction=direction
+                    w_body=np.array([v@ref['right'],v@ref['up'],v@ref['forward']])/torso3
+                    f_body=np.array([f@ref['right'],f@ref['up'],f@ref['forward']])/torso3
+                    scored,direction_scores,score_margin,forearm_side=direction_evidence(
+                        w_body,f_body,np.array([lateral2,lift]),
+                        np.array([fore_lateral2,lift-elbow_lift]),elbow_angle,ref,side)
+                    spatial_conflict=(abs(ref['right'][2])<.45 and elbow_angle>110 and
+                                      previous_direction in ('left','right') and scored=='forward' and
+                                      abs(heading)<=config['forward_sector'] and
+                                      direction_scores['forward']>direction_scores[previous_direction]+.12)
+                    if forearm_side or spatial_conflict:
+                        direction=scored;ambiguity=score_margin
         instant_up=current_sample['up3'] if current_sample is not None else (ref['up'] if ref else space_up)
         instant_right=current_sample['right3'] if current_sample is not None else (ref['right'] if ref else np.array([-1.,0.,0.]))
         instant_right=unit(instant_right-(instant_right@instant_up)*instant_up)
@@ -147,6 +163,8 @@ def observe_arms(p,q,s,ref,config,previous_active,current_sample=None):
             'direction':direction,'confidence':confidence,'quality':quality,'lift':lift,
             'elbow_lift':elbow_lift,'reach':reach,'elbow_angle':elbow_angle,'heading':heading,
             'margin':max(0.,float(ambiguity)),'feature':np.r_[v2,fore].tolist(),
+            'direction_scores':direction_scores,'forearm_side_evidence':forearm_side,
+            'legacy_direction':legacy_direction,'spatial_conflict':bool(spatial_conflict),
             'reach_3d_horizontal':float(horizontal),'forearm_3d':float(np.linalg.norm(fore3)),
             'projection_shortening_supported':bool(spatially_extended and not projected_extended),
             'feature_3d':feature3.tolist(),'body_right':instant_right.tolist(),
@@ -252,8 +270,24 @@ class BalancedPointing:
         counts=Counter(v['direction'] for v in known);direction,count=counts.most_common(1)[0]
         if votes[-1]['direction']!=direction:return None
         required=cfg['forward_votes'] if direction=='forward' else cfg['side_votes']
+        tail=[v for v in known if v['direction']==direction][-3:]
+        # Three stable frames can resolve a brief, extended spatial gesture.
+        # This exception requires agreement in all three observations, rather
+        # than lowering the global vote count for preparation movements.
+        if (direction=='forward' and phase and len(tail)==3 and
+            all(v.get('spatial_conflict') and v.get('margin',0.)>.16 and
+                v.get('quality',0.)>.60 for v in tail) and
+            tail[-1]['time_s']-tail[0]['time_s']>=.06):required=3
         if count<required or count/len(known)<cfg['vote_fraction']:return None
         support=[v for v in known if v['direction']==direction]
+        if direction=='forward':support=support[-required:]
+        recent=support[-3:]
+        if len(recent)>=3:
+            dt=recent[-1]['time_s']-recent[0]['time_s']
+            change=np.asarray(recent[-1]['feature'])[:2]-np.asarray(recent[0]['feature'])[:2]
+            speed=(np.linalg.norm(change) if phase is None and direction=='forward' else abs(change[1]))/max(dt,1e-8)
+            gate=(direction=='forward' or (phase is None and recent[-1]['lift']<-.15))
+            if gate and dt>0 and speed>1.0:return None
         if direction=='forward' and np.ptp([v['lift'] for v in support[-required:]])>cfg['forward_height_spread']:return None
         if len({v['side'] for v in support})!=1:return None
         features=np.asarray([v['feature'] for v in support]);median=np.median(features,axis=0)
@@ -265,6 +299,8 @@ class BalancedPointing:
                 'lift':float(np.median([v['lift'] for v in support])),
                 'recent_raise':any(v['recent_raise'] for v in support),
                 'natural_transition':sum(bool(v.get('natural_transition')) for v in support)>=required,
+                'direction_margin':float(np.mean([v.get('margin',0.) for v in support])),
+                'forward_score':float(np.mean([v.get('direction_scores',{}).get('forward',0.) for v in support])),
                 'feature':median.tolist(),'start_frame':support[0]['frame'],'started_s':support[0]['time_s'],
                 'feature_3d':np.median([v['feature_3d'] for v in support],axis=0).tolist(),
                 'body_right':body_right.tolist(),
@@ -280,11 +316,15 @@ class BalancedPointing:
             # Rotating the body with an unchanged body-relative arm pose is
             # not a second arm gesture, even though its image projection moves.
             if turn_body>15 and wrist3<.15 and fore_turn<20:return False
+            if (candidate['direction']=='forward' and turn_body<15 and
+                candidate.get('forward_score',0.)>.75 and candidate.get('direction_margin',0.)>.16 and
+                new3[2]-old3[2]>.30):return True
         if candidate.get('natural_transition'):
             return True
         # Lowering a lateral arm often projects briefly as forward. A forward
         # gesture after a lateral one requires a new raise, separated by rest.
         if phase['direction'] in ('left','right') and candidate['direction']=='forward':
+            # A new spatial pose may turn forward without raising higher.
             if not candidate['recent_raise'] and candidate['lift']<phase['lift']+.06:return False
         if phase['side']!=candidate['side']:return True
         a=np.asarray(phase['feature']);b=np.asarray(candidate['feature'])
@@ -330,13 +370,17 @@ class BalancedPointing:
         if ref is not None:
             if reference_history and time_s-reference_history[0][0]>=.10:
                 turn=float(np.degrees(np.arccos(np.clip(ref['right']@reference_history[0][1],-1,1))))
-                if turn>=cfg['body_turn_degrees']:st['weak_pose_after_s']=time_s+cfg['weak_after_turn_s']
-            reference_history.append((time_s,ref['right'].copy()))
+                projection_change=abs(ref['width']-reference_history[0][2])>.08
+                if turn>=cfg['body_turn_degrees'] and projection_change:st['weak_pose_after_s']=time_s+cfg['weak_after_turn_s']
+            reference_history.append((time_s,ref['right'].copy(),ref['width']))
         arms=observe_arms(p,q,s,ref,cfg,st['active'],sample)
         alternate=make_reference(st['alternate_refs'],cfg)
         tracker=st['heading_filter']
+        for arm in arms:
+            if tracker.ready and arm.get('spatial_conflict'):
+                arm['direction']=arm['legacy_direction']
         if cfg['orientation_assist'] and ref is not None and tracker.ready and alternate is not None and tracker.cosine<.94:
-            alternatives=observe_arms(p,q,s,alternate,cfg,st['active'],sample)
+            alternatives=observe_arms(p,q,s,alternate,{**cfg,'arm_geometry':False},st['active'],sample)
             shoulder=q[[5,6]].mean(0);hip=q[[11,12]].mean(0)
             size=np.linalg.norm(shoulder-hip);up=unit(shoulder-hip)
             head_ok=s[0]>=.50 and min(s[[3,4]])>=.20 and max(s[[3,4]])>=.65 and np.isfinite(q[[0,3,4]]).all()
@@ -357,28 +401,24 @@ class BalancedPointing:
                     profile=bool(tracker.cosine<.80 and raw_width<.40)
                     medium=(not profile and coherent and arm['reach']<.70 and raw_width<.60)
                     if not follows_face or not (profile or medium):continue
-                    if profile and len(all_q)>=133 and len(all_s)>=133:
-                        base=91 if arm['side']=='L' else 112
-                        ids=np.arange(base+5,base+9)
-                        if min(all_s[ids])>=.60 and np.isfinite(all_q[ids]).all():
-                            chain=all_q[ids]
-                            path_length=np.linalg.norm(np.diff(chain,axis=0),axis=1).sum()
-                            straight=np.linalg.norm(chain[-1]-chain[0])/max(path_length,1e-8)
-                            finger_h=float((chain[-1]-chain[0])@h/size)
-                            opposed=finger_h*(face@h)<0 and abs(finger_h)>.035
-                            if straight>.85 and opposed:
-                                arm['profile_hand_veto']=True
-                                continue
                     if profile and (horizontal<.12 or fraction<.55 or (fore@h)*(face@h)<=0):continue
                     dz=float(p[wr,2]-p[sh,2])
                     depth_agrees=dz*alternate['forward'][2]>0 and abs(dz)>.06
                     if medium and not depth_agrees and abs(dz)>.06:continue
+                    # Heading is only an aid. A folded arm with no forward
+                    # spatial support cannot become forward solely because
+                    # its wrist happens to lie on the face-facing side.
+                    if (alt['direction']=='forward' and arm['elbow_angle']<135 and
+                        arm['direction']!='forward' and
+                        arm.get('direction_scores',{}).get('forward',0.)<.50):
+                        arm['direction']=None
+                        continue
                     arm['direction']=alt['direction'] if alt['direction']=='forward' else None
                     arm['orientation_assisted']=True
                     arm['profile_front']=profile and arm['direction']=='forward'
 
-        if cfg['natural_gestures']:
-            apply_natural_evidence(arms,p,q,all_q,all_s,ref,st['phase'],st['natural_history'],time_s)
+        if cfg['arm_geometry']:
+            apply_arm_motion(arms,p,q,ref,st['phase'],st['natural_history'],time_s)
 
         torso_size=float(np.linalg.norm(q[[5,6]].mean(0)-q[[11,12]].mean(0)))
         hip=q[[11,12]].mean(0)
@@ -401,6 +441,11 @@ class BalancedPointing:
             ref is not None and ref['width']>=.55)
         for arm in arms:
             arm['rejections']=[]
+            if (arm['direction']=='forward' and st['phase'] and
+                st['phase']['direction'] in ('left','right') and not tracker.ready and
+                not arm.get('natural_transition') and arm.get('direction_scores') and
+                arm['direction_scores']['forward']-max(arm['direction_scores']['left'],arm['direction_scores']['right'])<.16):
+                arm['direction']=None;arm['rejections'].append('AMBIGUOUS_SPATIAL_DIRECTION')
             history=st['lift_history'][arm['side']]
             while history and frame-history[0][0]>cfg['raise_history_frames']:history.popleft()
             low=min((lift for _,lift in history),default=arm['lift'])
@@ -408,6 +453,12 @@ class BalancedPointing:
             peak=max((lift for _,lift in history),default=arm['lift'])
             falling=(len(history)>=3 and arm['lift']<history[-3][1]-.08)
             history.append((frame,arm['lift']))
+            if st['phase'] and st['phase']['side']==arm['side']:
+                st['phase']['peak_lift']=max(st['phase'].get('peak_lift',st['phase']['lift']),arm['lift'])
+                phase_peak=st['phase']['peak_lift']
+            else:phase_peak=arm['lift']
+            if st['phase'] and arm['direction']!=st['phase']['direction'] and arm['lift']<phase_peak-.12 and falling:
+                arm['direction']=None;arm['rejections'].append('LOWERING_FROM_POINT_PEAK')
             if st['phase'] and arm['direction']!=st['phase']['direction'] and arm['lift']<st['phase']['lift']-.12 and falling:
                 arm['direction']=None;arm['rejections'].append('LOWERING_AFTER_POINT')
             if arm.get('orientation_assisted') and arm['direction']=='forward' and st['phase'] and st['phase']['direction']!='forward' and arm['lift']<peak-.10:
@@ -420,7 +471,9 @@ class BalancedPointing:
                 arm['direction']=None;arm['rejections'].append('LOW_FORWARD_WITHOUT_EXTENSION')
             weak_low_pose=(arm['lift']<-.28 and arm['elbow_lift']<-.30 and
                 (arm['reach']<.70 or arm['elbow_angle']<120))
-            if weak_low_pose and (walking or time_s<st['weak_pose_after_s']):
+            deliberate_side=(arm.get('forearm_side_evidence') and not arm.get('bimanual_suppressed') and
+                             (arm['recent_raise'] or st['phase'] is not None))
+            if weak_low_pose and ((walking and not deliberate_side) or time_s<st['weak_pose_after_s']):
                 arm['direction']=None
                 arm['rejections'].append('WALKING_WEAK_ARM' if walking else 'BODY_REFERENCE_SETTLING')
             timer=st['profile_front_since']
