@@ -8,9 +8,10 @@ The camera/body reference remains a monocular estimate, not calibration.
 from collections import Counter,deque
 import math
 import numpy as np
+from natural_pointing import apply_natural_evidence
 
 REQUIRED=('forward','left','right')
-PROFILE='side_forward_v4'
+PROFILE='natural_pointing_v5'
 DEFAULTS={'smooth_frames':3,'reference_frames':60,'min_reference_frames':12,'min_joint_score':.35,
           'min_wrist_score':.45,'min_mean_score':.50,'raise_enter':-.64,
           'raise_exit':-.76,'min_reach':.18,'min_forearm':.06,
@@ -28,7 +29,8 @@ DEFAULTS={'smooth_frames':3,'reference_frames':60,'min_reference_frames':12,'min
           'side_min_lateral':.24,'side_min_forearm_lateral':.06,'side_min_fraction':.45,
           'body_turn_window_s':.25,'body_turn_degrees':20.,'weak_after_turn_s':.65,
           'walking_hip_speed':1.05,'walking_foot_speed':.50,
-          'orientation_assist':True,'profile_front_settle_s':.22,'forward_height_spread':.12}
+          'orientation_assist':True,'profile_front_settle_s':.22,'forward_height_spread':.12,
+          'natural_gestures':True}
 
 
 def unit(v):
@@ -226,6 +228,7 @@ class BalancedPointing:
     def _state(self,tid,time_s):
         if int(tid) in self.people:return self.people[int(tid)]
         return self.people.setdefault(int(tid),{'done':{},'passed_s':None,'events':[],
+            'natural_history':{side:deque(maxlen=40) for side in ('L','R')},
             'profile_front_since':{side:None for side in ('L','R')},'heading_filter':HeadingFilter(),'alternate_refs':deque(maxlen=12),'last_frame':None,'last_seen_s':time_s,'last_reference_s':None,
             'reference_history':deque(maxlen=60),'weak_pose_after_s':0.,'motion_history':deque(maxlen=60),
             'samples':deque(maxlen=self.config['smooth_frames']),
@@ -261,6 +264,7 @@ class BalancedPointing:
         return {'direction':direction,'side':support[-1]['side'],'support':count,
                 'lift':float(np.median([v['lift'] for v in support])),
                 'recent_raise':any(v['recent_raise'] for v in support),
+                'natural_transition':sum(bool(v.get('natural_transition')) for v in support)>=required,
                 'feature':median.tolist(),'start_frame':support[0]['frame'],'started_s':support[0]['time_s'],
                 'feature_3d':np.median([v['feature_3d'] for v in support],axis=0).tolist(),
                 'body_right':body_right.tolist(),
@@ -276,6 +280,8 @@ class BalancedPointing:
             # Rotating the body with an unchanged body-relative arm pose is
             # not a second arm gesture, even though its image projection moves.
             if turn_body>15 and wrist3<.15 and fore_turn<20:return False
+        if candidate.get('natural_transition'):
+            return True
         # Lowering a lateral arm often projects briefly as forward. A forward
         # gesture after a lateral one requires a new raise, separated by rest.
         if phase['direction'] in ('left','right') and candidate['direction']=='forward':
@@ -300,6 +306,7 @@ class BalancedPointing:
             st['alternate_refs'].clear();st['profile_front_since']={side:None for side in ('L','R')}
             st['heading_filter'].depths.clear();st['heading_filter'].depth_sign=None;st['heading_filter'].right2=None
             for history in st['lift_history'].values():history.clear()
+            for history in st['natural_history'].values():history.clear()
         st['last_frame']=frame;st['last_seen_s']=time_s
         if not np.isfinite(p[5:13]).all() or not np.isfinite(q[5:13]).all() or not np.isfinite(s[5:13]).all() or min(s[[5,6,11,12]])<.30:
             st['votes'].append({'direction':None});return self.snapshot(tid),[]
@@ -369,6 +376,9 @@ class BalancedPointing:
                     arm['direction']=alt['direction'] if alt['direction']=='forward' else None
                     arm['orientation_assisted']=True
                     arm['profile_front']=profile and arm['direction']=='forward'
+
+        if cfg['natural_gestures']:
+            apply_natural_evidence(arms,p,q,all_q,all_s,ref,st['phase'],st['natural_history'],time_s)
 
         torso_size=float(np.linalg.norm(q[[5,6]].mean(0)-q[[11,12]].mean(0)))
         hip=q[[11,12]].mean(0)

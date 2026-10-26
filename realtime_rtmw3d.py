@@ -29,6 +29,14 @@ WINDOW = 'RTMW3D-L FP16 | Q/Esc: quit | R: reset'
 DIRECTION_NAMES = {'forward': '前', 'left': '左', 'right': '右'}
 
 
+def rule_fingerprint():
+    sources = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+               for name in ('balanced_pointing_rules.py', 'natural_pointing.py')}
+    bundle = hashlib.sha256(json.dumps(sources, sort_keys=True).encode('utf-8')).hexdigest()
+    return {'rule_sha256': sources['balanced_pointing_rules.py'],
+            'rule_sources_sha256': sources, 'rule_bundle_sha256': bundle}
+
+
 class GestureTally:
     """Count confirmed phases, including repeated directions, never held frames.
 
@@ -394,7 +402,7 @@ def run(args):
             log = args.log.open('w', encoding='utf8')
         emit({'type': 'session_start', 'source': source_label(reader.source),
               'model': 'RTMW3D-L TensorRT FP16', 'rules': DEFAULTS, 'rule_profile': PROFILE,
-              'rule_sha256': hashlib.sha256((ROOT / 'balanced_pointing_rules.py').read_bytes()).hexdigest(),
+              **rule_fingerprint(),
               'source_fps': reader.fps, 'live_latest_frame': reader.live})
         packet = reader.read()
         if packet is None:
@@ -510,7 +518,7 @@ def run(args):
                 'gpu': torch.cuda.get_device_name(0), 'tensorrt': trt.__version__,
                 'rules': pipeline.counter.config,
                 'rule_profile': PROFILE,
-                'rule_sha256': hashlib.sha256((ROOT / 'balanced_pointing_rules.py').read_bytes()).hexdigest(),
+                **rule_fingerprint(),
                 'people_current_generation': pipeline.summary(),
                 'counting': 'One increment per confirmed gesture phase, including repeats and gestures after green; reset with R.',
                 'notes': ['Lost tracks expire after state-ttl; expiry and direction events are in JSONL when enabled.',
@@ -518,7 +526,8 @@ def run(args):
                           'Frame age starts after capture/decode, not at camera exposure.',
                           'Monocular XYZ remains uncalibrated; no separate face model or manual ROI.',
                           'Existing nose/ear points optionally assist heading; missing points fall back to body rules.',
-                          'Existing index-finger XY points may veto a contradictory profile-forward projection; they are optional.']}
+                          'Existing index-finger XY points optionally support compact side gestures and veto contradictory profile-forward projections.',
+                          'Continuous side-to-front changes use projected shortening, height consistency and depth evidence, without a required new raise.']}
             emit({'type': 'session_end', 'status': status, 'processed_frames': processed})
             if args.log:
                 summary_path = args.log.with_suffix('.summary.json')

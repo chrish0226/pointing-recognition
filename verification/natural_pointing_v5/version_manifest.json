@@ -1,0 +1,112 @@
+{
+  "profile": "natural_pointing_v5",
+  "rule_sha256": "2053215e7b0cfb8790d1322a417cda795250de912feb22656825d40d706c56c3",
+  "rule_sources_sha256": {
+    "balanced_pointing_rules.py": "2053215e7b0cfb8790d1322a417cda795250de912feb22656825d40d706c56c3",
+    "natural_pointing.py": "f4914a6fc9cad15ef657544112b1418c4c40e1b1c186ae0fd37835770c0eec13"
+  },
+  "rule_bundle_sha256": "8fd21b5576d6222070dfe9c8d3a93c0623693d332adb864489161083477f5d22",
+  "baseline_commit": "9c2459ed6f85c08df37c3b48d53263bd6db84c63",
+  "files": [
+    {
+      "file": "balanced_pointing_rules.py",
+      "sha256": "2053215e7b0cfb8790d1322a417cda795250de912feb22656825d40d706c56c3"
+    },
+    {
+      "file": "BASELINE.md",
+      "sha256": "c00259330d6bb1f87024a4c42512118974504edcfb2f74214ef80a60de45252b"
+    },
+    {
+      "file": "natural_pointing.py",
+      "sha256": "f4914a6fc9cad15ef657544112b1418c4c40e1b1c186ae0fd37835770c0eec13"
+    },
+    {
+      "file": "README.md",
+      "sha256": "16312f8417c1785c0e07708481e7eac3ae5648c33ac5e79f07bbb17f7bc3aa52"
+    },
+    {
+      "file": "realtime_rtmw3d.py",
+      "sha256": "f60ba8bea62e2857d68d81ac0e83c8c0cd45b206cc33763843a38bf79141cdd4"
+    },
+    {
+      "file": "regression_fixtures/natural_gestures_real.json",
+      "sha256": "a12b8559c49ca84cbd24f5180806f9e5ec0b371dc376d4a220b49a2a5d03ce83"
+    },
+    {
+      "file": "regression_fixtures/side_front_real.json",
+      "sha256": "4dfcb298adf5a87368c4ff133057134a26098a3f56c42340c2352ce57541ee36"
+    },
+    {
+      "file": "regression_fixtures/yolo_left_with_ghost_forward.json",
+      "sha256": "378214ed1657d549cdb68d2ac14343a2d73e91c4556c8e91b39ae6a8e261c9f4"
+    },
+    {
+      "file": "rtmw3d_pointing_rules.py",
+      "sha256": "2a723c31fc4ea4eac077198ecc06b2a8c12389811b425e8b8ba503ef65cb9233"
+    },
+    {
+      "file": "rtmw3d_trt_pointing.py",
+      "sha256": "7d5fcd69dfdf78890c6aa568031dd4c6f4343ef22d1ff258fe52b8de8ec68078"
+    },
+    {
+      "file": "rtmw_trt_runtime.py",
+      "sha256": "676ba795144b93caf9e6d3573656717d7e6edf7cdc1a6b611f522753d53f1906"
+    },
+    {
+      "file": "run_realtime.cmd",
+      "sha256": "d12fd96af1b9d0d54f7d54d4f1edd44c5a72f91a1957faf8fb9b904c2ec69301"
+    },
+    {
+      "file": "test_balanced_pointing_rules.py",
+      "sha256": "909799e3fe5170373b3c044555dd792246e090dcbb77babc4cae7da1def0af27"
+    },
+    {
+      "file": "test_current_body_rules.py",
+      "sha256": "1b2f09718f78adc04f9c3beae39d9a81ac0a925c481e2df6580fec32573b4c5e"
+    },
+    {
+      "file": "test_natural_pointing.py",
+      "sha256": "0d297b88af546196730fe01f9a7325c11409c057c017fe29924a2e663afa1e66"
+    },
+    {
+      "file": "test_realtime_rtmw3d.py",
+      "sha256": "a2c7ae2db0c54233c9fb12e5e90eadae17b74e36f83c245257f5e2d528303bf3"
+    },
+    {
+      "file": "test_rtmw3d_pointing_rules.py",
+      "sha256": "f637b8814c623513d0e4334e7da5b72d3df50e43d7e4082698b825eaf05006a4"
+    },
+    {
+      "file": "test_rtmw3d_trt_adapters.py",
+      "sha256": "1bba87ddf05e1db54577a31b4c1be5cd8009f376db729a046dc63461da23adfe"
+    },
+    {
+      "file": "test_side_forward_rules.py",
+      "sha256": "996402abb30ca0d75bb56fb2d2645dd24673eaf8ce1abfbcaddc620258288ddc"
+    },
+    {
+      "file": "test_yolo_pointing_simple.py",
+      "sha256": "081e786ae0d2583b7f85016bd08545a887f5d4f784e30d5a2606c09dc3a0d870"
+    },
+    {
+      "file": "tools/verify_videos.py",
+      "sha256": "a3bb74d3b0c989faa4ee309341019034fd8146c865b3d44a464ac3fa3f562c2d"
+    },
+    {
+      "file": "verification/natural_pointing_v5/verification.json",
+      "sha256": "76179fbef65a78861894e32c55ab290f884754add17bf589d3275d1c2f25d50a"
+    },
+    {
+      "file": "yolo_pointing_simple.py",
+      "sha256": "4f50526bb965cac423ad65634885baf395923f83d3c176b7d462723a22499d8b"
+    },
+    {
+      "file": "三维关键点与几何判定说明.md",
+      "sha256": "09a3dd07fdfda6cf05adccb53fc9934b1f3370a4c4e80113dac40f8817bdc520"
+    },
+    {
+      "file": "实时推理使用说明.md",
+      "sha256": "b333b09b645eb2cda9dfebed16ecde7f729335f96f21331e78a7174684e0f402"
+    }
+  ]
+}
