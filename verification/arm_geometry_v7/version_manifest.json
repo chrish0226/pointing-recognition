@@ -1,0 +1,288 @@
+{
+  "profile": "arm_geometry_v7",
+  "rule_sha256": "8952bd61b98c42f649e3756a1e93de44b17a914b0362468b54ea8a9b9cf50faf",
+  "rule_sources_sha256": {
+    "balanced_pointing_rules.py": "8952bd61b98c42f649e3756a1e93de44b17a914b0362468b54ea8a9b9cf50faf",
+    "arm_geometry.py": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+  },
+  "rule_bundle_sha256": "b1890add862a7f50f2809b5ee8b359123f3061a76423982166c709759f3448ff",
+  "parent_commit": "2bdbc8d1200a7c6be2360319ecee0dfd12f976a7",
+  "files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "7ba88c299a6a9df3d665c8263cc91b93e396fdbd3bfc7000755f284b9f722590"
+    },
+    {
+      "file": ".gitignore",
+      "sha256": "04e75e7244bb21f78f0defe4c8aabf6c840a40b489d86b3f6a4170c63359dbca"
+    },
+    {
+      "file": "BASELINE.md",
+      "sha256": "c00259330d6bb1f87024a4c42512118974504edcfb2f74214ef80a60de45252b"
+    },
+    {
+      "file": "README.md",
+      "sha256": "5f94f60db957fde47b2c0a3d2381a8a3ec60c8daf0414baa83b841fa8db57081"
+    },
+    {
+      "file": "arm_geometry.py",
+      "sha256": "281bd33e0374ceaa525001e350cbadfaa7cddd18b121001c18acc5f04b7e7bca"
+    },
+    {
+      "file": "balanced_pointing_rules.py",
+      "sha256": "8952bd61b98c42f649e3756a1e93de44b17a914b0362468b54ea8a9b9cf50faf"
+    },
+    {
+      "file": "realtime_rtmw3d.py",
+      "sha256": "a372d2d7f5c557082b51b03bac053f27d941390c846263ef5e491b56d0c8e0d1"
+    },
+    {
+      "file": "regression_fixtures/arm_geometry_real.json",
+      "sha256": "6cc84ee27f33e715a00623bee5d77716954d7762ccc49204cc0822959652cf55"
+    },
+    {
+      "file": "regression_fixtures/body_direction_v7.json",
+      "sha256": "16b2acf224b4bf7083b6fc63e75c8b46f57ec4b07379fe1467e5cfc755548619"
+    },
+    {
+      "file": "regression_fixtures/natural_gestures_real.json",
+      "sha256": "a12b8559c49ca84cbd24f5180806f9e5ec0b371dc376d4a220b49a2a5d03ce83"
+    },
+    {
+      "file": "regression_fixtures/side_front_real.json",
+      "sha256": "4dfcb298adf5a87368c4ff133057134a26098a3f56c42340c2352ce57541ee36"
+    },
+    {
+      "file": "regression_fixtures/yolo_left_with_ghost_forward.json",
+      "sha256": "378214ed1657d549cdb68d2ac14343a2d73e91c4556c8e91b39ae6a8e261c9f4"
+    },
+    {
+      "file": "rtmlib-main/LICENSE",
+      "sha256": "ec0a9c27a980866653f5a9901ea0e2458df074b1516e45c6842736ee5c5a4a1c"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/__init__.py",
+      "sha256": "b058b967ad3ff409e4d0ecae3aac89dafd578c4d6d0bb259df4a0b996f5266d3"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/__init__.py",
+      "sha256": "fe27e374b32e8b1ed77adcf227fa54231e6ee08845dc224d7c6970a5cc94a144"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/base.py",
+      "sha256": "0d287088838eee78cc8cb5ef722a53148f7c100bf73eed16457ce3f9f40b272a"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/file.py",
+      "sha256": "fd0a94435e3b5e5a60a6beba1cb7d40771346c2e54c77a7d72ce65d7fc496694"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/object_detection/__init__.py",
+      "sha256": "cbaee3fdb2db62cbe09718f1e66e03a0dc157baa7098c11f1d4a3dd1f26bc038"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/object_detection/post_processings.py",
+      "sha256": "8b6bc31fd13c3af3ba64a6983efdc927448bfb17245b7502602847e0d2b2775e"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/object_detection/rfdetr.py",
+      "sha256": "9f1e8a85d84f0b109f270d30e2ae78034f42d7562612dd2a2e214c4d5f1cc6ba"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/object_detection/rtmdet.py",
+      "sha256": "7072d523ef1be65e4302143aa251f3bf560e12536410d96c7a64d579cec89e1e"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/object_detection/yolox.py",
+      "sha256": "f72b756611450ebddbb6d593ca6d7d1398a3f10b682b86e3f16db4525a072fb9"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/pose_estimation/__init__.py",
+      "sha256": "5b4d9e5b8fbf5874f648296cc93251c82a80f89650c1bf17ec4c3ba3e52815dd"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/pose_estimation/post_processings.py",
+      "sha256": "6c372b34c0021a808c28cbc49206b1908e4cf9c820e859fde18c22a5362bcf05"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/pose_estimation/pre_processings.py",
+      "sha256": "2bd84ad2300c3bb43a831e18aff30588c6f8e570d41d492826cf540cfe8c0fcb"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/pose_estimation/rtmo.py",
+      "sha256": "8315e32b633aa55bc3b4f8fb224d4f92f88fce4741727a7de36fd9a0372ae22b"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/pose_estimation/rtmpose.py",
+      "sha256": "98b37228b3ff2a705d856e139486992d2c1f2124d805cf5db5a97bf295ed4e97"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/pose_estimation/rtmpose3d.py",
+      "sha256": "94b143e4760173b056ef85dd95baaca89ca084756df0ecca88aa5735dc4daabf"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/pose_estimation/vitpose.py",
+      "sha256": "d9e33c31467de8c2e81e0dd29c08f4e9f33df00b13ae84edef1002d96036972c"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/__init__.py",
+      "sha256": "dcf70fb50409de1f86d69433aef3e49f9ea65fd6a4539dc68a552c70da2e1fc6"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/animal.py",
+      "sha256": "1696152d835f0927e12c37c3a26615a91065dd2cc4e7b413db37403696c1c837"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/body.py",
+      "sha256": "aa00a5432c04889b6eb610c5214a8ae8b89a86ba7bb48989544d989f4eebbf3d"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/body_with_feet.py",
+      "sha256": "c772dd20b9dbed97b36857ab1ce55799bee8faad6294865d79efe8b463409e4f"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/custom.py",
+      "sha256": "7f60b00f03fef9fa997dc9a023e4622aed15d78e637fbdf84c98033b66bbfd7f"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/hand.py",
+      "sha256": "37810ca4a3a2106a4db3efc36ff5a651f572247ab49d0edecdec733fd1e41a27"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/pose_tracker.py",
+      "sha256": "57ac3fe180e868c63095aab5fee248cc763c69db56bc75b658233c19db6a2cbe"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/utils/types.py",
+      "sha256": "623bfe72c8504fbee631e84d5528bc8223f709fbe3224e801a16c0471c72123f"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/wholebody.py",
+      "sha256": "ea05fe04fc5c5c4b07b4c933d0c9c08668cb26e448f28fd188056ae08d54b508"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/tools/solution/wholebody3d.py",
+      "sha256": "bc8d5dc1e4402861480d8dfbb01b1375c7cc2dae2d0d307b78dee9c699f3c0f1"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/version.py",
+      "sha256": "0c2d35ecad9ac143ef77bc6f142b6f2854120855efd8cc2071fb330e8b93ebed"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/__init__.py",
+      "sha256": "aa88dd9f3e14a976cf5807c5f31d2e12df5b9588992645890278d9fe84f5d4f5"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/draw.py",
+      "sha256": "5029e772fc8d330fac2710ebff88bf36b1c63d1b444aee7811cf92472a9047e3"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/__init__.py",
+      "sha256": "bf2d9dc61100469141544ba04e35557d43b2689eda658e7344548393d8932537"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/animal17.py",
+      "sha256": "166911787f6fa4c98428baf0f488138aba355162810b422377a449a3abd31797"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/coco133.py",
+      "sha256": "dbdb7cf33c3e348cf53e967f6d7bd4c8568ca68e3391bd3a7b5dfb6b61ae4f0d"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/coco17.py",
+      "sha256": "8b6cced9f5f7eb55ea9c21cc75c4f9909e8e9945646607241f02d921bc402c6a"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/coco25.py",
+      "sha256": "98e32513fd2de4a3c4f447ff04e62d93346f7e840e29c309a3b579a322d37eae"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/halpe26.py",
+      "sha256": "29c44b709b2df10fae1409b5048dc9519f3db37db434b3a775ceec67cecbdfd9"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/hand21.py",
+      "sha256": "9c227270686d5ac193b26d658b364ade072907a79864c51da30653b7f8c1220b"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/openpose134.py",
+      "sha256": "9c3d026531f93c6ccbc1a0ec1ee5d975ac01e1772429a45f0cf48d2d765f2a05"
+    },
+    {
+      "file": "rtmlib-main/rtmlib/visualization/skeleton/openpose18.py",
+      "sha256": "a07303965862f53d7d0738c3dfb8c17b41f4c7394d0d7505ff294819c6a025bf"
+    },
+    {
+      "file": "rtmw3d_pointing_rules.py",
+      "sha256": "2a723c31fc4ea4eac077198ecc06b2a8c12389811b425e8b8ba503ef65cb9233"
+    },
+    {
+      "file": "rtmw3d_trt_pointing.py",
+      "sha256": "7d5fcd69dfdf78890c6aa568031dd4c6f4343ef22d1ff258fe52b8de8ec68078"
+    },
+    {
+      "file": "rtmw_trt_runtime.py",
+      "sha256": "676ba795144b93caf9e6d3573656717d7e6edf7cdc1a6b611f522753d53f1906"
+    },
+    {
+      "file": "run_realtime.cmd",
+      "sha256": "d12fd96af1b9d0d54f7d54d4f1edd44c5a72f91a1957faf8fb9b904c2ec69301"
+    },
+    {
+      "file": "test_balanced_pointing_rules.py",
+      "sha256": "909799e3fe5170373b3c044555dd792246e090dcbb77babc4cae7da1def0af27"
+    },
+    {
+      "file": "test_body_direction_v7.py",
+      "sha256": "ccd1ace149779f3527be30d49b26b1eb937a5b450b4bed161c99c19436258d7b"
+    },
+    {
+      "file": "test_current_body_rules.py",
+      "sha256": "1b2f09718f78adc04f9c3beae39d9a81ac0a925c481e2df6580fec32573b4c5e"
+    },
+    {
+      "file": "test_natural_pointing.py",
+      "sha256": "748a94e4507b9474eb79a49e3399bef42dfa0b1faf97ae168cd529dce638b70b"
+    },
+    {
+      "file": "test_realtime_rtmw3d.py",
+      "sha256": "807b03fc7307befe4b27d5a0c049d41cf934bfb79ffdead4551da4522960cfbf"
+    },
+    {
+      "file": "test_rtmw3d_pointing_rules.py",
+      "sha256": "f637b8814c623513d0e4334e7da5b72d3df50e43d7e4082698b825eaf05006a4"
+    },
+    {
+      "file": "test_rtmw3d_trt_adapters.py",
+      "sha256": "1bba87ddf05e1db54577a31b4c1be5cd8009f376db729a046dc63461da23adfe"
+    },
+    {
+      "file": "test_side_forward_rules.py",
+      "sha256": "996402abb30ca0d75bb56fb2d2645dd24673eaf8ce1abfbcaddc620258288ddc"
+    },
+    {
+      "file": "test_yolo_pointing_simple.py",
+      "sha256": "081e786ae0d2583b7f85016bd08545a887f5d4f784e30d5a2606c09dc3a0d870"
+    },
+    {
+      "file": "tools/verify_videos.py",
+      "sha256": "a3bb74d3b0c989faa4ee309341019034fd8146c865b3d44a464ac3fa3f562c2d"
+    },
+    {
+      "file": "yolo_pointing_simple.py",
+      "sha256": "4f50526bb965cac423ad65634885baf395923f83d3c176b7d462723a22499d8b"
+    },
+    {
+      "file": "三维关键点与几何判定说明.md",
+      "sha256": "82f57e6fec65534a6952cebdadb8501350a7610310b6dcb450072793a97236f9"
+    },
+    {
+      "file": "实时推理使用说明.md",
+      "sha256": "946d8968b986df0fc8eb422ca9bb33451b4e5fffb96f79452c13fe8c2376e2c8"
+    }
+  ]
+}
